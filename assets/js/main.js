@@ -105,11 +105,11 @@
   /* ---------- 6. Page reveal + scroll reveal ----------
      Headings fade in word by word; other blocks fade up as they scroll
      into view. Nothing animates until the welcome/intro has finished. */
-  var SPLIT_SEL = '.hero__title, .section-title';
+  var SPLIT_SEL = '.hero__title, .section-title, .about-name';
   var SCROLL_SEL = [
-    '.eyebrow', '.section-sub', '.prose p', '.about-hero .meta', '.about-hero .hero__cta', '.about-photo',
-    '.card', '.process__step', '.timeline__item', '.subhead', '.tag-list',
-    '.faq__item', '.contact-link', '.contact-form'
+    '.eyebrow', '.a-lead', '.subhead', '.tag-list', '.faq__item',
+    '.flow__step', '.flow__arrow', '.step', '.xp__card', '.value', '.hobby', '.polaroid',
+    '.note', '.connect-list', '.a-connect .btn', '.a-connect__form'
   ].join(',');
 
   // Wrap each word of a heading in a span, keeping <strong> etc. intact
@@ -138,7 +138,7 @@
   }
 
   function setupScrollReveal() {
-    if (reducedMotion || !('IntersectionObserver' in window)) return;
+    if (reducedMotion || !('IntersectionObserver' in window)) { root.classList.add('no-anim'); return; }
     document.querySelectorAll(SPLIT_SEL).forEach(splitWords);
     // Stagger siblings that appear together (cards, chips, FAQ rows...)
     document.querySelectorAll(SCROLL_SEL).forEach(function (el) {
@@ -151,13 +151,17 @@
   }
 
   function startObserving() {
-    var targets = document.querySelectorAll('.sr, .words');
+    var targets = document.querySelectorAll('.sr:not(.note), .words');
     if (!targets.length) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-in');
           io.unobserve(entry.target);
+          // Handwritten notes are fully clipped before they "write" in, so the
+          // observer can't see them: reveal them with the rest of their section.
+          var sec = entry.target.closest('section');
+          if (sec) sec.querySelectorAll('.note.sr').forEach(function (n) { n.classList.add('is-in'); });
         }
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
