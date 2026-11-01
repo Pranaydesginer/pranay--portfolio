@@ -17,8 +17,7 @@
       }
       root.setAttribute('data-theme', theme);
       root.classList.add('js');
-      try { if (sessionStorage.getItem('pp-welcomed')) root.classList.add('welcomed'); } catch (e) {}
-      try { if (sessionStorage.getItem('pp-nav')) { root.classList.add('nav-in'); sessionStorage.removeItem('pp-nav'); } } catch (e) {}
+      try { if (sessionStorage.getItem('pp-nav')) { root.classList.add('nav-in', 'welcomed'); sessionStorage.removeItem('pp-nav'); } } catch (e) {}
     })();
   </script>
 

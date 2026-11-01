@@ -17,8 +17,8 @@
       }
       root.setAttribute('data-theme', theme);
       root.classList.add('js');
-      try { if (sessionStorage.getItem('pp-welcomed')) root.classList.add('welcomed'); } catch (e) {}
-      try { if (sessionStorage.getItem('pp-nav')) { root.classList.add('nav-in'); sessionStorage.removeItem('pp-nav'); } } catch (e) {}
+      // Welcome + intro play on every fresh visit; skipped when arriving from another page of the site
+      try { if (sessionStorage.getItem('pp-nav')) { root.classList.add('nav-in', 'welcomed'); sessionStorage.removeItem('pp-nav'); } } catch (e) {}
     })();
   </script>
 
@@ -125,10 +125,12 @@
         </div>
       </div>
 
-      <!-- Right column: original voxel illustration -->
+      <!-- Right column: portrait in a circular frame -->
       <div class="hero__visual reveal" style="--d:.45s">
-        <img class="hero__art" src="assets/images/hero-voxel.svg" width="335" height="401"
-             alt="Voxel illustration of Pranay at his desk, designing a user flow on a laptop, with a plant, books and a mug.">
+        <figure class="portrait">
+          <img src="assets/images/pranay-portrait.jpg" width="800" height="800"
+               alt="Portrait of Pranay Chowdary Puthumbaka, wearing glasses and a teal collared sweatshirt.">
+        </figure>
       </div>
     </section>
   </main>

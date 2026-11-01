@@ -208,11 +208,12 @@
     timers.forEach(clearTimeout);
     timers = [];
     document.removeEventListener('keydown', introKeys);
-    intro.classList.add('lines-out', 'is-leaving');
+    // Crossfade: the overlay (with its grid lines) fades while the page fades in underneath
+    intro.classList.add('is-leaving');
     setTimeout(function () {
       intro.className = 'intro';
       intro.setAttribute('aria-hidden', 'true');
-    }, 450);
+    }, 950);
     revealPage();
   }
 
