@@ -1112,6 +1112,20 @@ body.is-leaving { opacity: 0; }
   .reel__mock { width: 50%; align-self: start; }
 }
 
+/* Reel: show the whole screen (no crop, no pan) */
+.reel__shot--fit { height: auto; border-radius: 10px 0 0 10px; }
+.reel__shot--fit img, .reel__slide.is-active .reel__shot--fit img { height: auto; object-fit: contain; animation: none; }
+/* Banner hero + device row: phone beside the admin screen, never covering its live preview */
+.cs-hero__media--mock { display: grid; grid-template-columns: 1fr 210px; gap: 36px; align-items: end; padding: 0 0 20px; }
+.cs-hero__media--mock .cs-mock, .cs-devices--mock .cs-mock--device { position: static; width: 100%; margin: 0; }
+.cs-devices--mock { display: grid; grid-template-columns: 1fr 200px; gap: 36px; align-items: end; max-width: 1040px; }
+.cs-devices--mock .browser--device { width: 100%; }
+.cs-hero__media--plain { padding: 0; }
+@media (max-width: 640px) {
+  .cs-hero__media--mock, .cs-devices--mock { grid-template-columns: 1fr 96px; gap: 14px; padding: 0; }
+  .cs-hero__media--mock .cs-mock, .cs-devices--mock .cs-mock--device { width: 100%; }
+}
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
