@@ -678,11 +678,11 @@ body.is-leaving { opacity: 0; }
   transition: translate .3s var(--ease), box-shadow .3s var(--ease);
 }
 .xp__card:hover { translate: 0 -4px; box-shadow: 0 16px 30px rgba(0,0,0,.07); }
-.xp__card--now { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+.xp__card--now { border-color: color-mix(in srgb, var(--hold) 30%, var(--line)); }
 .xp__badge {
   display: inline-flex; align-items: center; gap: 6px; margin-bottom: 14px; padding: 4px 10px; border-radius: 99px;
   font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--hold); background: color-mix(in srgb, var(--hold) 10%, transparent);
 }
 .xp__badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: blink 1.6s ease-in-out infinite; }
 .xp__meta { display: flex; flex-direction: column; align-items: flex-start; }
@@ -696,7 +696,7 @@ body.is-leaving { opacity: 0; }
   content: ""; position: absolute; left: 3px; top: .62em;
   width: 6px; height: 6px; border-radius: 50%; background: var(--line-dot);
 }
-.xp__card--now .xp__list li::before { background: var(--accent); }
+.xp__card--now .xp__list li::before { background: var(--hold); }
 
 /* 5. Values on a wavy path: the accent line draws in as you scroll,
    and each value lights up (icon draws, title gets a marker highlight) as the line reaches it */
@@ -706,10 +706,10 @@ body.is-leaving { opacity: 0; }
   content: ""; position: absolute; inset: -40px 0 10%; z-index: -1;
   -webkit-mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 40%, transparent 100%);
           mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 40%, transparent 100%);
-  background: radial-gradient(40% 70% at 20% 40%, color-mix(in srgb, var(--hold) 10%, transparent), transparent),
+  background: radial-gradient(40% 70% at 20% 40%, color-mix(in srgb, var(--hold) 14%, transparent), transparent),
               radial-gradient(40% 70% at 75% 50%, color-mix(in srgb, #7A5AF5 8%, transparent), transparent);
 }
-[data-theme="dark"] .icon-tile--value { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
+[data-theme="dark"] .icon-tile--value { background: linear-gradient(150deg, rgba(110,155,255,.16), rgba(110,155,255,.05)); border-color: rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
 [data-theme="dark"] .value.is-lit .icon-tile--value { background: linear-gradient(145deg, color-mix(in srgb, var(--hold) 18%, rgba(255,255,255,.06)), rgba(255,255,255,.03)); border-color: rgba(255,255,255,.14); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
 .values__path { position: absolute; left: 0; top: 0; width: 100%; height: 130px; overflow: visible; }
 .values__base { fill: none; stroke: var(--line-dot); stroke-width: 1.5; stroke-dasharray: 5 7; }
@@ -720,16 +720,18 @@ body.is-leaving { opacity: 0; }
 
 .icon-tile--value {
   width: 72px; height: 72px; border-radius: 20px; color: var(--muted);
-  background: rgba(255,255,255,.45); border-color: rgba(255,255,255,.6);
-  -webkit-backdrop-filter: blur(10px) saturate(140%); backdrop-filter: blur(10px) saturate(140%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 4px 12px rgba(0,0,0,.04);
+  color: color-mix(in srgb, var(--hold) 55%, var(--muted));
+  background: linear-gradient(150deg, rgba(232,240,255,.85), rgba(214,228,255,.45));
+  border-color: rgba(255,255,255,.85);
+  -webkit-backdrop-filter: blur(12px) saturate(150%); backdrop-filter: blur(12px) saturate(150%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(47,111,235,.08), 0 8px 20px rgba(47,111,235,.08);
   transition: background-color .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease), scale .5s var(--ease), box-shadow .5s var(--ease);
 }
 .value.is-lit .icon-tile--value {
   color: var(--hold); scale: 1.05;
-  background: linear-gradient(145deg, color-mix(in srgb, var(--hold) 12%, rgba(255,255,255,.55)), rgba(255,255,255,.25));
-  border-color: rgba(255,255,255,.7);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 6px 16px color-mix(in srgb, var(--hold) 10%, transparent);
+  background: linear-gradient(150deg, rgba(219,232,255,.95), rgba(190,212,255,.55));
+  border-color: rgba(255,255,255,.95);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,1), inset 0 -1px 0 rgba(47,111,235,.12), 0 10px 24px rgba(47,111,235,.14);
   animation: tile-bob 5s ease-in-out infinite;
 }
 .value:nth-child(2).is-lit .icon-tile--value { animation-delay: .5s; }
@@ -826,6 +828,37 @@ body.is-leaving { opacity: 0; }
   .note--photo .note__emoji { font-size: 18px; }
   .note__arrow { display: none; }
 }
+
+/* ---------- Decorations: thread, floaters, travel doodles ---------- */
+.a-intro, .a-center, .places-sec { position: relative; }
+/* dashed thread from the intro photo down to the Curiosity tile; draws on scroll */
+.thread { position: absolute; z-index: 0; pointer-events: none; color: color-mix(in srgb, var(--hold) 55%, var(--line-dot)); }
+.thread--origin { top: -150px; left: 0; width: 100%; height: 510px; }
+.thread path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 2 7; }
+.thread__dot { fill: var(--hold); }
+.thread svg, .thread { overflow: visible; }
+.thread .draw { stroke-dasharray: 1; stroke-dashoffset: 1; stroke-width: 1.6; }
+.thread.is-in .draw, .no-anim .thread .draw { stroke-dashoffset: 0; transition: stroke-dashoffset 2.2s var(--ease) .2s; }
+.thread .mask-stroke { stroke: #fff; stroke-dasharray: 1; stroke-dashoffset: 1; stroke-width: 4; }
+.thread.is-in .mask-stroke, .no-anim .thread .mask-stroke { stroke-dashoffset: 0; transition: stroke-dashoffset 2.2s var(--ease) .2s; }
+.a-center > *:not(.thread):not(.floater) { position: relative; z-index: 1; }
+
+/* small floating shapes */
+.floater { position: absolute; z-index: 0; pointer-events: none; color: color-mix(in srgb, var(--hold) 60%, transparent); animation: float-y 7s ease-in-out infinite; }
+.floater:nth-of-type(2n) { animation-duration: 9s; animation-delay: -2s; }
+.floater:nth-of-type(3n) { animation-duration: 8s; animation-delay: -4s; color: color-mix(in srgb, #7A5AF5 50%, transparent); }
+@keyframes float-y { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -14px; rotate: 8deg; } }
+
+/* travel doodles around the places heading */
+.doodles { position: absolute; inset: 0; pointer-events: none; }
+.doodle { position: absolute; color: color-mix(in srgb, var(--hold) 70%, var(--muted)); animation: float-y 8s ease-in-out infinite; }
+.doodle--plane { top: 34px; right: 6%; animation-duration: 6s; }
+.doodle--pin { top: 120px; right: 34%; animation-delay: -3s; }
+.doodle--compass { bottom: 40px; left: 46%; animation-delay: -1.5s; }
+.doodle--sun { top: 70px; left: 52%; color: #F2B33D; animation-delay: -5s; }
+.places { position: relative; z-index: 1; }
+@media (max-width: 1020px) { .thread--origin { display: none; } .doodle--pin, .doodle--compass { display: none; } }
+@media (max-width: 640px) { .floater { display: none; } .doodle--sun { left: auto; right: 4%; top: 10px; } .doodle--plane { top: auto; bottom: 8px; } }
 
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
