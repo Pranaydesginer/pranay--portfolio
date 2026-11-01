@@ -1037,6 +1037,63 @@ body.is-leaving { opacity: 0; }
   .cs-delivered li { grid-template-columns: 1fr; gap: 4px; }
 }
 
+/* Project card reel: an auto-playing preview (caption + screen), one slide at a time */
+.reel {
+  position: relative; display: block; overflow: hidden; aspect-ratio: 16 / 11; padding: 0 !important;
+  border-radius: 18px; background: #12161F; isolation: isolate;
+}
+[data-theme="dark"] .reel { background: #0C0F15; }
+.reel::before { /* soft blue light in the corner */
+  content: ""; position: absolute; inset: auto -20% -40% auto; width: 70%; aspect-ratio: 1; z-index: -1;
+  background: radial-gradient(closest-side, rgba(47,111,235,.35), transparent);
+}
+.reel__slide {
+  position: absolute; inset: 0; display: grid; grid-template-columns: .8fr 1.6fr; align-items: center; gap: 18px;
+  padding: 26px 0 26px 26px; opacity: 0; transition: opacity .35s ease;
+}
+.reel__slide.is-active { opacity: 1; transition: opacity .6s var(--ease) .3s; }
+.reel__cap { display: grid; gap: 8px; color: #fff; translate: 0 10px; opacity: 0; transition: translate .7s var(--ease) .15s, opacity .7s var(--ease) .15s; }
+.reel__slide.is-active .reel__cap { translate: 0 0; opacity: 1; }
+.reel__cap strong { color: #fff; font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -.02em; line-height: 1.2; }
+.reel__cap span { font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,.6); }
+.reel__shot {
+  height: 86%; overflow: hidden; border-radius: 10px 0 0 10px; background: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,.4); translate: 30px 0; transition: translate .9s var(--ease);
+}
+.reel__slide.is-active .reel__shot { translate: 0 0; }
+.reel__shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 0 0; }
+.reel__slide.is-active .reel__shot img { animation: reel-pan 3.6s ease-in-out forwards; }
+.reel__shot--zoom img { object-position: 0 0; transform-origin: 0 0; }
+.reel__slide.is-active .reel__shot--zoom img { animation: reel-zoom 3.6s ease-in-out forwards; }
+@keyframes reel-pan { from { object-position: 0 0; } to { object-position: 100% 100%; } }
+@keyframes reel-zoom { from { transform: scale(1); } to { transform: scale(1.8); } }
+.reel__phone { justify-self: center; width: 42%; padding: 5px; border-radius: 20px; background: #000; box-shadow: 0 20px 40px rgba(0,0,0,.45); translate: 0 20px; transition: translate .9s var(--ease); }
+.reel__slide.is-active .reel__phone { translate: 0 0; }
+.reel__phone img { display: block; width: 100%; border-radius: 15px; }
+.reel__dots { position: absolute; left: 26px; bottom: 16px; display: flex; gap: 6px; }
+.reel__dots span { position: relative; width: 22px; height: 3px; overflow: hidden; border-radius: 3px; background: rgba(255,255,255,.2); }
+.reel__dots span.is-active::after { content: ""; position: absolute; inset: 0; background: #fff; animation: reel-bar var(--reel, 3.6s) linear forwards; transform-origin: left; }
+.reel__dots span.is-done { background: rgba(255,255,255,.7); }
+@keyframes reel-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.p-card:hover .reel { box-shadow: 0 0 0 3px color-mix(in srgb, var(--hold) 30%, transparent); }
+
+/* Problem pain points */
+.cs-pains { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+.cs-pain__num { font-size: 13px; font-weight: 600; color: var(--accent); }
+.cs-pain h3 { margin: 12px 0 8px; font-size: 19px; font-weight: 600; color: var(--text-strong); }
+.cs-pain p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+@media (max-width: 1020px) { .cs-pains { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .reel { aspect-ratio: 4 / 5; }
+  .reel__slide { grid-template-columns: 1fr; grid-template-rows: auto 1fr; padding: 22px 0 40px 20px; gap: 14px; }
+  .reel__cap { padding-right: 20px; }
+  .reel__shot { height: 100%; }
+  .reel__phone { width: 52%; align-self: start; }
+  .reel__dots { left: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .reel__slide.is-active .reel__shot img, .reel__slide.is-active .reel__shot--zoom img { animation: none; } }
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }

@@ -102,6 +102,32 @@
     });
   }
 
+  /* ---------- 10. Project card reel ----------
+     Plays the slides one after another; pauses when off screen or hovered. */
+  document.querySelectorAll('.reel').forEach(function (reel) {
+    var slides = reel.querySelectorAll('.reel__slide');
+    var dots = reel.querySelectorAll('.reel__dots span');
+    var i = 0, timer = null, visible = false, hovered = false, DUR = 3600;
+    function show(n) {
+      slides.forEach(function (s, k) { s.classList.toggle('is-active', k === n); });
+      dots.forEach(function (d, k) {
+        d.classList.toggle('is-done', k < n);
+        d.classList.remove('is-active'); void d.offsetWidth;
+        if (k === n) d.classList.add('is-active');
+      });
+    }
+    function tick() { i = (i + 1) % slides.length; show(i); }
+    function play() { if (!timer && visible && !hovered && !reducedMotion) timer = setInterval(tick, DUR); }
+    function stop() { clearInterval(timer); timer = null; }
+    reel.style.setProperty('--reel', DUR + 'ms');
+    show(0);
+    reel.addEventListener('mouseenter', function () { hovered = true; stop(); });
+    reel.addEventListener('mouseleave', function () { hovered = false; play(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible ? play() : stop(); }, { threshold: .3 }).observe(reel);
+    } else { visible = true; play(); }
+  });
+
   /* ---------- 6. Page reveal + scroll reveal ----------
      Headings fade in word by word; other blocks fade up as they scroll
      into view. Nothing animates until the welcome/intro has finished. */
@@ -110,7 +136,7 @@
     '.eyebrow', '.a-lead', '.subhead', '.tag-list', '.faq__item',
     '.flow__step', '.flow__arrow', '.step', '.xp__card', '.value', '.hobby', '.place',
     '.note', '.connect-list', '.thread',
-    '.p-card', '.cs-card', '.cs-step', '.cs-feature__text', '.cs-feature__media', '.cs-devices', '.cs-next__card', '.cs-problem', '.cs-compare__col', '.cs-research', '.cs-delivered li', '.p-card__facts', '.a-connect .btn', '.a-connect__form'
+    '.p-card', '.cs-card', '.cs-step', '.cs-feature__text', '.cs-feature__media', '.cs-devices', '.cs-next__card', '.cs-problem', '.cs-pain', '.cs-compare__col', '.cs-research', '.cs-delivered li', '.p-card__facts', '.a-connect .btn', '.a-connect__form'
   ].join(',');
 
   // Wrap each word of a heading in a span, keeping <strong> etc. intact
