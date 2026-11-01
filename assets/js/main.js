@@ -41,7 +41,8 @@
     [soundBtn, soundPill].forEach(function (el) {
       if (el) el.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
     });
-    if (soundPill) soundPill.textContent = soundOn ? 'Sound on' : 'Sound off';
+    var pillLabel = document.getElementById('soundPillLabel');
+    if (pillLabel) pillLabel.textContent = soundOn ? 'Sound on' : 'Sound off';
   }
 
   function toggleSound(e) {
@@ -273,22 +274,13 @@
   // Type "Welcome" letter by letter (instant if reduced motion)
   if (reducedMotion) {
     textEl.textContent = word;
-    enterBtn.classList.add('is-ready');
   } else {
     var i = 0;
-    // Each typed letter also "presses" the matching key on the keyboard row
-    var keys = document.querySelectorAll('.keyrow .key:not(.key--enter)');
     var typer = setInterval(function () {
-      var k = keys[i];
       textEl.textContent = word.slice(0, ++i);
-      if (k) { k.classList.add('is-down'); setTimeout(function () { k.classList.remove('is-down'); }, 170); }
-      if (i >= word.length) {
-        clearInterval(typer);
-        enterBtn.classList.add('is-ready');      // Enter key starts to glow
-      }
-    }, 160);
+      if (i >= word.length) clearInterval(typer);
+    }, 140);
   }
-  enterBtn.focus({ preventScroll: true });
 
   function continueOn() {
     if (done) return;
