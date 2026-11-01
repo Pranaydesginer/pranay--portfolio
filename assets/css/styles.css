@@ -655,7 +655,7 @@ body.is-leaving { opacity: 0; }
 .step p { margin: 0; font-size: 14px; color: var(--muted); }
 
 /* 4. Experience cards */
-.xp { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+.xp { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
 .xp__card {
   position: relative; padding: 28px;
   background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px;
@@ -675,18 +675,46 @@ body.is-leaving { opacity: 0; }
 .xp__org { margin: 0 0 14px; font-size: 15px; color: var(--text); }
 .xp__card p:not(.xp__org) { margin: 0 0 6px; font-size: 15px; color: var(--muted); }
 
-/* 5. Values on a wavy path */
+/* 5. Values on a wavy path: the accent line draws in as you scroll,
+   and each value lights up (icon draws, title gets a marker highlight) as the line reaches it */
 .values { position: relative; }
-.values__path { position: absolute; left: 0; top: 0; width: 100%; height: 114px; color: var(--line-dot); }
+.values__path { position: absolute; left: 0; top: 0; width: 100%; height: 130px; overflow: visible; }
+.values__base { fill: none; stroke: var(--line-dot); stroke-width: 1.5; stroke-dasharray: 5 7; }
+.values__progress { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .25s linear; }
+.no-anim .values__progress { stroke-dashoffset: 0; }
 .values__list { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; text-align: center; }
-.value:nth-child(even) { margin-top: 64px; }
-.value .icon-tile { animation: tile-bob 5.5s ease-in-out infinite; }
-.value:nth-child(2) .icon-tile { animation-delay: .5s; }
-.value:nth-child(3) .icon-tile { animation-delay: 1s; }
-.value:nth-child(4) .icon-tile { animation-delay: 1.5s; }
-.value:nth-child(5) .icon-tile { animation-delay: 2s; }
-.value h3 { margin: 14px 0 4px; font-size: 17px; font-weight: 600; color: var(--text-strong); }
-.value p { margin: 0 auto; max-width: 170px; font-size: 14px; color: var(--muted); }
+.value:nth-child(even) { margin-top: 68px; }
+
+.icon-tile--value {
+  width: 72px; height: 72px; border-radius: 20px; color: var(--muted);
+  transition: background-color .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease), scale .5s var(--ease), box-shadow .5s var(--ease);
+}
+.value.is-lit .icon-tile--value {
+  color: var(--accent); scale: 1.08;
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface-2));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--accent) 16%, transparent);
+  animation: tile-bob 5s ease-in-out infinite;
+}
+.value:nth-child(2).is-lit .icon-tile--value { animation-delay: .5s; }
+.value:nth-child(3).is-lit .icon-tile--value { animation-delay: 1s; }
+.value:nth-child(4).is-lit .icon-tile--value { animation-delay: 1.5s; }
+.value:nth-child(5).is-lit .icon-tile--value { animation-delay: 2s; }
+/* icons draw themselves in */
+.js:not(.no-anim) .icon-tile--value svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s var(--ease) .15s; }
+.js:not(.no-anim) .value.is-lit .icon-tile--value svg * { stroke-dashoffset: 0; }
+
+.value__num { display: block; margin-top: 18px; font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--muted); transition: color .5s; }
+.value.is-lit .value__num { color: var(--accent); }
+.value h3 { margin: 6px 0 8px; font-size: 21px; font-weight: 600; letter-spacing: -.015em; color: var(--text-strong); }
+/* marker-style highlight that sweeps under the title */
+.hl {
+  padding: 0 3px;
+  background: linear-gradient(color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent) 22%, transparent)) no-repeat 0 90% / 0% 40%;
+  transition: background-size .8s var(--ease) .3s;
+}
+.value.is-lit .hl, .no-anim .hl { background-size: 100% 40%; }
+.value p { margin: 0 auto; max-width: 180px; font-size: 15px; line-height: 1.5; color: var(--muted); }
 
 /* placeholders until Pranay sends images */
 .placeholder {
@@ -752,6 +780,7 @@ body.is-leaving { opacity: 0; }
   .flow__arrow svg { width: 38px; }
   .steps { grid-template-columns: 1fr; }
   .values__list { grid-template-columns: repeat(2, 1fr); }
+  .value:last-child { grid-column: 1 / -1; }
   .hobbies { gap: 16px; }
   .polaroids { gap: 18px; }
   .polaroid:nth-child(2), .polaroid:nth-child(4) { margin-top: 24px; }

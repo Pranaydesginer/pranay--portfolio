@@ -170,14 +170,9 @@
         </article>
         <article class="xp__card">
           <span class="xp__date">Aug 2025 – Jan 2026</span>
-          <h3>Virtual Internship</h3>
+          <h3>UX Intern</h3>
           <p class="xp__org">Beetsl Soft Solutions</p>
-        </article>
-        <article class="xp__card">
-          <span class="xp__date">2021 – 2025</span>
-          <h3>B.Tech, ECE</h3>
-          <p class="xp__org">Bharat Institute of Higher Education &amp; Research</p>
-          <p>Electronics &amp; Communication Engineering.</p>
+          <!-- Details to come from Pranay -->
         </article>
       </div>
     </section>
@@ -188,28 +183,42 @@
         <h2 class="section-title a-title" id="values-title">A few things I <strong>hold on to.</strong></h2>
         <p class="note note--side">the non-negotiables.</p>
       </div>
-      <div class="values">
-        <svg class="values__path" viewBox="0 0 1000 114" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 50 25, 60 25, 100 25 S 250 89, 300 89 S 450 25, 500 25 S 650 89, 700 89 S 850 25, 900 25 S 980 40, 1000 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 7"/></svg>
+      <div class="values" id="values">
+        <!-- dashed base path + accent path that draws in as you scroll -->
+        <svg class="values__path" viewBox="0 0 1000 130" preserveAspectRatio="none" aria-hidden="true">
+          <path class="values__base" d="M0 46 C 50 36, 60 36, 100 36 S 250 104, 300 104 S 450 36, 500 36 S 650 104, 700 104 S 850 36, 900 36 S 980 46, 1000 46"/>
+          <path class="values__progress" pathLength="1" d="M0 46 C 50 36, 60 36, 100 36 S 250 104, 300 104 S 450 36, 500 36 S 650 104, 700 104 S 850 36, 900 36 S 980 46, 1000 46"/>
+        </svg>
         <ul class="values__list">
           <li class="value">
-            <span class="icon-tile icon-tile--accent icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></span>
-            <h3>Curiosity</h3><p>Question things, kindly.</p>
+            <span class="icon-tile icon-tile--value" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/><path d="M8.6 8.8a2 2 0 1 1 2.7 1.9c-.5.2-.8.6-.8 1.1v.4"/><path d="M10.5 14.2v.1"/></svg></span>
+            <span class="value__num">01</span>
+            <h3><span class="hl">Curiosity</span></h3>
+            <p>Question things, kindly.</p>
           </li>
           <li class="value">
-            <span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></svg></span>
-            <h3>Clarity</h3><p>If it needs explaining, simplify it.</p>
+            <span class="icon-tile icon-tile--value" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <span class="value__num">02</span>
+            <h3><span class="hl">Clarity</span></h3>
+            <p>If it needs explaining, simplify it.</p>
           </li>
           <li class="value">
-            <span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span>
-            <h3>Empathy</h3><p>Design for the person, not the screen.</p>
+            <span class="icon-tile icon-tile--value" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.5s-7-4.3-7-9.6A3.9 3.9 0 0 1 12 7.6a3.9 3.9 0 0 1 7 2.3c0 5.3-7 9.6-7 9.6z"/><path d="M9.2 11.5h1.6l1-1.8 1.5 3.4 1-1.6h1.5"/></svg></span>
+            <span class="value__num">03</span>
+            <h3><span class="hl">Empathy</span></h3>
+            <p>Design for the person, not the screen.</p>
           </li>
           <li class="value">
-            <span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></svg></span>
-            <h3>Simplicity</h3><p>Remove before you add.</p>
+            <span class="icon-tile icon-tile--value" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M7 11h10"/><path d="M10 16h4"/><path d="M12 20v.1"/></svg></span>
+            <span class="value__num">04</span>
+            <h3><span class="hl">Simplicity</span></h3>
+            <p>Remove before you add.</p>
           </li>
           <li class="value">
-            <span class="icon-tile icon-tile--dark icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
-            <h3>Ownership</h3><p>See it through, from brief to handoff.</p>
+            <span class="icon-tile icon-tile--value" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 3.5 2 3.5H5"/></svg></span>
+            <span class="value__num">05</span>
+            <h3><span class="hl">Ownership</span></h3>
+            <p>See it through, from brief to handoff.</p>
           </li>
         </ul>
       </div>

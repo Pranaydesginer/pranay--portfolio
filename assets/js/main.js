@@ -170,6 +170,41 @@
 
   setupScrollReveal();
 
+  /* ---------- 9. Values (About): scroll-linked highlight ----------
+     The accent line draws along the wavy path as you scroll; each value
+     lights up when the line reaches it (on mobile: when it scrolls into view). */
+  function setupValues() {
+    var box = document.getElementById('values');
+    if (!box) return;
+    var items = Array.prototype.slice.call(box.querySelectorAll('.value'));
+    var prog = box.querySelector('.values__progress');
+    var pathSvg = box.querySelector('.values__path');
+    box.querySelectorAll('.icon-tile--value svg *').forEach(function (el) { el.setAttribute('pathLength', '1'); });
+    if (reducedMotion) { items.forEach(function (it) { it.classList.add('is-lit'); }); return; }
+
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight;
+      var pathShown = pathSvg && getComputedStyle(pathSvg).display !== 'none';
+      if (pathShown) {
+        var top = box.getBoundingClientRect().top;
+        var p = Math.max(0, Math.min(1, (vh * 0.85 - top) / (vh * 0.55)));
+        prog.style.strokeDashoffset = String(1 - p);
+        items.forEach(function (it, i) { it.classList.toggle('is-lit', p >= i * 0.2 + 0.08); });
+      } else {
+        items.forEach(function (it) { it.classList.toggle('is-lit', it.getBoundingClientRect().top < vh * 0.75); });
+      }
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+  setupValues();
+
+
   function revealPage() {
     document.body.classList.remove('is-locked');
     // next frame so the transitions actually run
