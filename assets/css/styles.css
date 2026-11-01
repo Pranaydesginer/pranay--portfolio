@@ -1062,9 +1062,9 @@ body.is-leaving { opacity: 0; }
 }
 .reel__slide.is-active .reel__shot { translate: 0 0; }
 .reel__shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 0 0; }
-.reel__slide.is-active .reel__shot img { animation: reel-pan 3.6s ease-in-out forwards; }
+.reel__slide.is-active .reel__shot img { animation: reel-pan 4.5s ease-in-out forwards; }
 .reel__shot--zoom img { object-position: 0 0; transform-origin: 0 0; }
-.reel__slide.is-active .reel__shot--zoom img { animation: reel-zoom 3.6s ease-in-out forwards; }
+.reel__slide.is-active .reel__shot--zoom img { animation: reel-zoom 4.5s ease-in-out forwards; }
 @keyframes reel-pan { from { object-position: 0 0; } to { object-position: 100% 100%; } }
 @keyframes reel-zoom { from { transform: scale(1); } to { transform: scale(1.8); } }
 .reel__phone { justify-self: center; width: 42%; padding: 5px; border-radius: 20px; background: #000; box-shadow: 0 20px 40px rgba(0,0,0,.45); translate: 0 20px; transition: translate .9s var(--ease); }
@@ -1072,7 +1072,7 @@ body.is-leaving { opacity: 0; }
 .reel__phone img { display: block; width: 100%; border-radius: 15px; }
 .reel__dots { position: absolute; left: 26px; bottom: 16px; display: flex; gap: 6px; }
 .reel__dots span { position: relative; width: 22px; height: 3px; overflow: hidden; border-radius: 3px; background: rgba(255,255,255,.2); }
-.reel__dots span.is-active::after { content: ""; position: absolute; inset: 0; background: #fff; animation: reel-bar var(--reel, 3.6s) linear forwards; transform-origin: left; }
+.reel__dots span.is-active::after { content: ""; position: absolute; inset: 0; background: #fff; animation: reel-bar var(--reel, 4.5s) linear forwards; transform-origin: left; }
 .reel__dots span.is-done { background: rgba(255,255,255,.7); }
 @keyframes reel-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .p-card:hover .reel { box-shadow: 0 0 0 3px color-mix(in srgb, var(--hold) 30%, transparent); }
@@ -1093,6 +1093,8 @@ body.is-leaving { opacity: 0; }
   .reel__dots { left: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { .reel__slide.is-active .reel__shot img, .reel__slide.is-active .reel__shot--zoom img { animation: none; } }
+
+.cs-hero__cta { margin: -22px 0 48px; }
 
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {

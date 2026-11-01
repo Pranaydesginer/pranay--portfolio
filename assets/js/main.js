@@ -107,7 +107,7 @@
   document.querySelectorAll('.reel').forEach(function (reel) {
     var slides = reel.querySelectorAll('.reel__slide');
     var dots = reel.querySelectorAll('.reel__dots span');
-    var i = 0, timer = null, visible = false, hovered = false, DUR = 3600;
+    var i = 0, timer = null, visible = false, hovered = false, DUR = 4500;
     function show(n) {
       slides.forEach(function (s, k) { s.classList.toggle('is-active', k === n); });
       dots.forEach(function (d, k) {
