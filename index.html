@@ -33,10 +33,8 @@
 
   <!-- ============ WELCOME SCREEN ============ -->
   <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-label="Welcome">
-    <!-- soft moving colour blobs on a dot grid -->
-    <div class="welcome__bg" aria-hidden="true">
-      <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span>
-    </div>
+    <!-- clean dot grid with a soft spotlight in the middle -->
+    <div class="welcome__bg" aria-hidden="true"></div>
 
     <div class="welcome__inner">
       <!-- Illustration: a laptop typing "Welcome", with floating design shapes and a cursor -->
@@ -162,6 +160,7 @@
 
       <!-- Right column: portrait in a circular frame -->
       <div class="hero__visual reveal" style="--d:.45s">
+        <span class="portrait__halo" aria-hidden="true"></span>
         <span class="portrait__glow" aria-hidden="true"></span>
         <figure class="portrait">
           <span class="portrait__clip">
