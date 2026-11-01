@@ -1096,6 +1096,22 @@ body.is-leaving { opacity: 0; }
 
 .cs-hero__cta { margin: -22px 0 48px; }
 
+/* Phone mockup images (already framed, on white) */
+.reel__mock { justify-self: center; width: 52%; align-self: center; translate: 0 20px; transition: translate .9s var(--ease); }
+.reel__slide.is-active .reel__mock { translate: 0 0; }
+.reel__mock img { display: block; width: 100%; -webkit-mask: linear-gradient(transparent, #000 16%); mask: linear-gradient(transparent, #000 16%); }
+.cs-hero__media--mock { padding-right: 150px; }
+.cs-mock { position: absolute; right: -10px; bottom: -30px; width: 240px; height: auto; filter: drop-shadow(0 24px 30px rgba(0,0,0,.16)); animation: float 6s ease-in-out infinite;
+  -webkit-mask: linear-gradient(transparent, #000 16%); mask: linear-gradient(transparent, #000 16%); }
+.cs-devices--mock { align-items: center; }
+.cs-mock--device { position: static; width: 240px; margin-left: -90px; }
+@media (max-width: 640px) {
+  .cs-hero__media--mock { padding-right: 70px; }
+  .cs-mock { width: 120px; }
+  .cs-mock--device { width: 130px; margin-left: -60px; }
+  .reel__mock { width: 50%; align-self: start; }
+}
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
