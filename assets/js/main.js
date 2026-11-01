@@ -273,12 +273,20 @@
   // Type "Welcome" letter by letter (instant if reduced motion)
   if (reducedMotion) {
     textEl.textContent = word;
+    enterBtn.classList.add('is-ready');
   } else {
     var i = 0;
+    // Each typed letter also "presses" the matching key on the keyboard row
+    var keys = document.querySelectorAll('.keyrow .key:not(.key--enter)');
     var typer = setInterval(function () {
+      var k = keys[i];
       textEl.textContent = word.slice(0, ++i);
-      if (i >= word.length) clearInterval(typer);
-    }, 140);
+      if (k) { k.classList.add('is-down'); setTimeout(function () { k.classList.remove('is-down'); }, 170); }
+      if (i >= word.length) {
+        clearInterval(typer);
+        enterBtn.classList.add('is-ready');      // Enter key starts to glow
+      }
+    }, 160);
   }
   enterBtn.focus({ preventScroll: true });
 
