@@ -1182,6 +1182,42 @@ body.is-leaving { opacity: 0; }
 @media (max-width: 1020px) { .ds-status, .ds-window { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .cs-phones .cs-phonefig img { height: 260px; } }
 
+/* Digital Savings: user flow with a screen per step */
+.ds-flow { position: relative; list-style: none; margin: 0; padding: 0; display: grid; gap: 64px; }
+.ds-flow::before { content: ""; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 1.5px; background: linear-gradient(var(--line-dot), var(--line-dot)) ; }
+.ds-row { position: relative; display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: center; padding-left: 64px; }
+.ds-row__num {
+  position: absolute; left: 0; top: 0;
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--surface-2); border: 1.5px solid var(--line-dot); font-size: 13px; font-weight: 700; color: var(--text-strong);
+}
+.ds-row:first-child .ds-row__num { background: var(--btn); color: var(--btn-text); border-color: var(--btn); }
+.ds-row__text { align-self: start; }
+.ds-row__text h3 { margin: 12px 0 8px; font-size: 22px; font-weight: 600; letter-spacing: -.02em; line-height: 1.25; color: var(--text-strong); }
+.ds-row__text p { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--muted); }
+.ds-row__text strong { color: var(--text-strong); font-weight: 600; }
+.ds-lane { display: inline-block; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 600; }
+.ds-lane--app { color: #2F6FEB; background: #EEF4FF; }
+.ds-lane--erp { color: var(--btn-text); background: var(--btn); }
+.ds-lane--both { color: #9A6A00; background: #FFF4D6; }
+.ds-row__media { display: flex; justify-content: center; }
+.ds-shot { width: 100%; max-width: 520px; overflow: hidden; border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(0,0,0,.08); }
+.ds-shot--wide { max-width: none; }
+.ds-shot img { display: block; width: 100%; height: auto; }
+.ds-outcomes { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.ds-outcomes figure { margin: 0; display: grid; gap: 10px; justify-items: start; }
+.ds-green { color: #fff; background: #1FA55B; }
+@media (max-width: 1020px) {
+  .ds-row { grid-template-columns: 1fr; gap: 24px; }
+  .ds-outcomes { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+}
+@media (max-width: 640px) {
+  .ds-row { padding-left: 52px; }
+  .ds-flow::before { left: 15px; }
+  .ds-row__num { width: 32px; height: 32px; font-size: 12px; }
+  .ds-outcomes { grid-template-columns: 1fr; }
+}
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
