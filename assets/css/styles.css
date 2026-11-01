@@ -21,14 +21,6 @@
   --btn-text: #FFFFFF;
   --accent: #E5383B;
 
-  /* Hand illustration (same in both themes, except sleeve) */
-  --skin-1: #F0D0B2;
-  --skin-2: #E4B791;
-  --skin-3: #D3A07A;
-  --hand-outline: #8A573A;
-  --hand-crease: #9C6544;
-  --sleeve-1: #3A3A3A;
-  --sleeve-2: #262626;
 
   --maxw: 1240px;
   --radius: 12px;
@@ -51,8 +43,6 @@
   --btn: #F2F2F2;
   --btn-text: #141414;
   --accent: #FF5A5F;
-  --sleeve-1: #4A4A4A;
-  --sleeve-2: #333333;
 }
 
 /* ---------- 2. Base ---------- */
@@ -203,30 +193,26 @@ body { overflow-x: hidden; }
 
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
-/* ---------- 6. Chips + Hand ---------- */
-.hero__visual {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px;
-}
-.chips { display: flex; flex-direction: column; gap: 14px; }
-.chips--left { align-items: flex-end; }
-.chips--right { align-items: flex-start; }
+/* ---------- 6. Chips + Hero illustration ---------- */
+/* Chips are used on the About page (skills + tools) */
 .chip {
   padding: 9px 14px;
   background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px;
   font-size: 13.5px; font-weight: 500; color: var(--text-strong); white-space: nowrap;
   box-shadow: 0 1px 2px rgba(0,0,0,.04);
 }
-/* Stagger: every second chip pushed outward 16px */
-.chips--left .chip:nth-child(even) { transform: translateX(-16px); }
-.chips--right .chip:nth-child(even) { transform: translateX(16px); }
 
-.hand { position: relative; width: 230px; }
-.hand::before {
-  content: ""; position: absolute; inset: -30% -35%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 16%, transparent), transparent);
+.hero__visual { position: relative; display: flex; justify-content: center; }
+/* soft glow behind the illustration */
+.hero__visual::before {
+  content: ""; position: absolute; inset: 5% 0;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 9%, transparent), transparent);
   z-index: -1;
 }
-.hand svg { display: block; width: 100%; height: auto; animation: float 6s ease-in-out infinite; }
+.hero__art {
+  display: block; width: 100%; max-width: 540px; height: auto;
+  animation: float 6s ease-in-out infinite;
+}
 @keyframes float {
   0%, 100% { transform: translateY(-8px); }
   50% { transform: translateY(8px); }
@@ -372,10 +358,7 @@ body { overflow-x: hidden; }
   .hero__hi { font-size: 16px; }
   .hero__desc { font-size: 16px; }
 
-  .hero__visual { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
-  .hand { order: -1; width: 190px; margin-bottom: 16px; }
-  .chips { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .chips .chip:nth-child(even) { transform: none; }
+  .hero__art { max-width: 340px; }
 
   .footer__inner { padding: 24px 22px; }
   .intro__cell { height: 120px; }
