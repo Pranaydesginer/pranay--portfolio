@@ -75,6 +75,32 @@
   }
   renderThemeLabel();
 
+  /* ---------- 7. Contact form (About page) ----------
+     No server: builds a mailto: link so the visitor's email app opens
+     with the message filled in. */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.elements.name, email = form.elements.email, msg = form.elements.message;
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      var fields = [[name, name.value.trim() !== ''], [email, emailOk], [msg, msg.value.trim() !== '']];
+      var firstBad = null;
+      fields.forEach(function (f) {
+        f[0].setAttribute('aria-invalid', f[1] ? 'false' : 'true');
+        if (!f[1] && !firstBad) firstBad = f[0];
+      });
+      document.getElementById('cf-error').hidden = !firstBad;
+      if (firstBad) { firstBad.focus(); return; }
+
+      var subject = 'Portfolio enquiry from ' + name.value.trim();
+      var body = msg.value.trim() + '\n\n' + name.value.trim() + '\n' + email.value.trim();
+      click(520);
+      window.location.href = 'mailto:pranaydesigner03@gmail.com?subject=' +
+        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  }
+
   /* ---------- 6. Page reveal (defined early, used below) ---------- */
   function revealPage() {
     document.body.classList.remove('is-locked');
@@ -110,11 +136,11 @@
   }
 
   function playIntro() {
-    if (reducedMotion || !intro) { revealPage(); return; }
+    if (reducedMotion || !intro || !greetEl) { revealPage(); return; }
     introRunning = true;
     intro.classList.add('is-active');
     document.addEventListener('keydown', introKeys);
-    document.getElementById('introSkip').focus({ preventScroll: true });
+    if (skipBtn) skipBtn.focus({ preventScroll: true });
 
     // 1. lines draw out (+ labels fade in via CSS delay)
     later(function () { intro.classList.add('lines-in'); }, 60);
@@ -140,7 +166,8 @@
     later(endIntro, 4500);
   }
 
-  document.getElementById('introSkip').addEventListener('click', endIntro);
+  var skipBtn = document.getElementById('introSkip');
+  if (skipBtn) skipBtn.addEventListener('click', endIntro);
 
   /* ---------- 4. Welcome screen ---------- */
   var welcome = document.getElementById('welcome');
