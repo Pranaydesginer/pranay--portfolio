@@ -1280,6 +1280,53 @@ body.is-leaving { opacity: 0; }
 .pk-type span { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: #19B573; color: #fff; font-family: "Poppins", var(--font); font-weight: 600; font-size: 18px; }
 .pk-type strong { font-family: "Poppins", var(--font); font-size: 17px; color: var(--text-strong); }
 
+/* Pocketly design system */
+.pk-ds { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.pk-ds__block { padding: 30px; border-radius: 20px; background: var(--surface-2); border: 1px solid var(--line); }
+.pk-dots { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 16px; }
+.pk-dots li { display: grid; justify-items: center; text-align: center; gap: 2px; }
+.pk-dots span { width: 72px; height: 72px; margin-bottom: 10px; border-radius: 50%; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 8px 18px rgba(0,0,0,.08); transition: scale .3s var(--ease); }
+.pk-dots li:hover span { scale: 1.08; }
+.pk-dots strong { font-size: 14px; color: var(--text-strong); }
+.pk-dots em { font-style: normal; font-size: 12.5px; font-family: ui-monospace, Menlo, monospace; color: var(--muted); }
+.pk-dots small { font-size: 12px; color: var(--muted); }
+.pk-type2 { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; margin-bottom: 22px; }
+.pk-type2__aa { display: grid; place-items: center; width: 104px; height: 104px; border-radius: 24px; background: #19B573; color: #fff; font: 600 48px/1 "Poppins", var(--font); }
+.pk-type2__name { margin: 0 0 6px; font: 600 26px/1.1 "Poppins", var(--font); color: var(--text-strong); }
+.pk-type2__chars { margin: 0; font: 400 13px/1.6 "Poppins", var(--font); letter-spacing: .04em; color: var(--muted); }
+.pk-scale { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.pk-scale li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-family: "Poppins", var(--font); color: var(--text-strong); }
+.pk-scale li em { font-family: var(--font); font-style: normal; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.pk-scale .w600 { font-weight: 600; font-size: 26px; color: #19B573; }
+.pk-scale .w500 { font-weight: 500; } .pk-scale .w400 { font-weight: 400; }
+.pk-scale .s20 { font-size: 20px; } .pk-scale .s15 { font-size: 15px; color: #6B7280; } .pk-scale .s13 { font-size: 13px; color: #6B7280; }
+.pk-comp { margin-bottom: 16px; background: linear-gradient(160deg, #F1FBF6, #F7F9F7); }
+[data-theme="dark"] .pk-comp { background: linear-gradient(160deg, #13201A, #171A18); }
+.pk-comp__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.pk-comp__item { margin: 0; }
+.pk-comp__item--a { grid-column: span 3; } .pk-comp__item--b { grid-column: span 3; }
+.pk-comp__item--c { grid-column: span 2; } .pk-comp__item--d { grid-column: span 2; } .pk-comp__item--e { grid-column: span 2; }
+.pk-comp__img { overflow: hidden; border-radius: 16px; background: #fff; box-shadow: 0 12px 28px rgba(0,0,0,.07); transition: translate .3s var(--ease); }
+.pk-comp__item:hover .pk-comp__img { translate: 0 -4px; }
+.pk-comp__img img { display: block; width: 100%; height: auto; }
+.pk-comp__item figcaption { display: grid; gap: 2px; margin-top: 12px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+.pk-comp__item figcaption strong { font-size: 15px; color: var(--text-strong); }
+.pk-navblock { display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px; align-items: center; }
+.pk-navblock .pk-note strong { color: var(--text-strong); }
+.pk-navblock__img { overflow: hidden; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 28px rgba(0,0,0,.07); }
+.pk-navblock__img img { display: block; width: 100%; height: auto; }
+@media (max-width: 1020px) {
+  .pk-ds, .pk-navblock { grid-template-columns: 1fr; }
+  .pk-comp__grid { grid-template-columns: 1fr 1fr; }
+  .pk-comp__item--a, .pk-comp__item--b, .pk-comp__item--c, .pk-comp__item--d, .pk-comp__item--e { grid-column: span 1; }
+}
+@media (max-width: 640px) {
+  .pk-ds__block { padding: 22px; }
+  .pk-dots { grid-template-columns: repeat(2, 1fr); }
+  .pk-comp__grid { grid-template-columns: 1fr; }
+  .pk-type2__aa { width: 80px; height: 80px; font-size: 36px; }
+}
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }

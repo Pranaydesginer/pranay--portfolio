@@ -24,7 +24,7 @@
   <!-- Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -79,6 +79,16 @@
         <figure class="pk-phone"><img src="assets/images/projects/pocketly/txn-zomato.webp" width="600" height="1240" loading="lazy" alt="Zomato transaction: minus 600 rupees, Food and Dining, paid with Phone Pe."></figure>
         <figure class="pk-phone"><img src="assets/images/projects/pocketly/txn-salary.webp" width="600" height="1240" loading="lazy" alt="Salary transaction: 12,000 rupees income, paid to account via UPI."></figure>
         <figure class="pk-phone"><img src="assets/images/projects/pocketly/txn-starbucks.webp" width="600" height="1240" loading="lazy" alt="Starbucks transaction: minus 320 rupees, Food and Dining, paid by card."></figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="problem-title">
+      <div class="a-head"><h2 class="section-title a-title" id="problem-title">The <strong>problem.</strong></h2><p class="note note--side">where did my money go?</p></div>
+      <p class="cs-problem">For many Gen Z users, money comes in and goes out quickly, but it is <strong>hard to see where it actually went</strong>, day to day and week to week. Without that picture, <strong>saving feels like guesswork</strong>.</p>
+      <div class="cs-pains">
+        <div class="cs-card cs-pain"><span class="cs-pain__num">01</span><h3>No clear picture</h3><p>Spending is hard to track across days and weeks.</p></div>
+        <div class="cs-card cs-pain"><span class="cs-pain__num">02</span><h3>Saving is hard</h3><p>Without knowing where money goes, it is hard to hold on to it.</p></div>
+        <div class="cs-card cs-pain"><span class="cs-pain__num">03</span><h3>No guidance</h3><p>Numbers alone don't say what to change.</p></div>
       </div>
     </section>
 
@@ -158,35 +168,56 @@
 
 
     <section class="section" aria-labelledby="vis-title">
-      <div class="a-head"><h2 class="section-title a-title" id="vis-title">Visual <strong>language.</strong></h2><p class="note note--side">fresh, light, friendly.</p></div>
-      <div class="pk-vis">
-        <div class="cs-card">
-          <h3 class="subhead">Colour</h3>
-          <ul class="pk-swatches">
-            <li><span style="background:#19B573"></span><strong>Pocketly green</strong><em>Status bar, income, completed</em></li>
-            <li><span style="background:#F01E1E"></span><strong>Spend red</strong><em>Expenses, delete</em></li>
-            <li><span style="background:#DCE3D7"></span><strong>Sage</strong><em>Category tags</em></li>
-            <li><span style="background:#E7ECE6"></span><strong>Mist</strong><em>Secondary buttons</em></li>
+      <div class="a-head"><h2 class="section-title a-title" id="vis-title">Design <strong>system.</strong></h2><p class="note note--side">fresh, light, friendly.</p></div>
+
+      <div class="pk-ds">
+        <div class="pk-ds__block pk-ds__block--colour">
+          <h3 class="subhead">Colours</h3>
+          <ul class="pk-dots">
+            <li><span style="background:#19B573"></span><strong>Pocketly Green</strong><em>#19B573</em><small>Brand, income, success</small></li>
+            <li><span style="background:#F01E1E"></span><strong>Spend Red</strong><em>#F01E1E</em><small>Expenses, delete</small></li>
+            <li><span style="background:#1F2328"></span><strong>Ink</strong><em>#1F2328</em><small>Titles and text</small></li>
+            <li><span style="background:#DCE3D7"></span><strong>Sage</strong><em>#DCE3D7</em><small>Category tags</small></li>
+            <li><span style="background:#E7ECE6"></span><strong>Mist</strong><em>#E7ECE6</em><small>Secondary buttons</small></li>
+            <li><span style="background:#FFFFFF"></span><strong>White</strong><em>#FFFFFF</em><small>Cards and screens</small></li>
           </ul>
-          <h3 class="subhead pk-type-h">Typeface</h3>
-          <p class="pk-type"><span>Aa</span><strong>Poppins</strong></p>
         </div>
-        <div class="cs-card">
-          <h3 class="subhead">Components</h3>
-          <div class="pk-comps">
-            <span class="pk-tag">Food &amp; Dining</span><span class="pk-tag">Transport</span><span class="pk-tag">Income</span>
-            <span class="pk-amt pk-amt--in">₹ 12,000</span><span class="pk-amt pk-amt--out">– ₹ 600</span>
-            <span class="pk-status"><i></i>Completed</span>
-            <span class="pk-btn">Edit Transaction</span><span class="pk-del">Delete Transaction</span>
+
+        <div class="pk-ds__block pk-ds__block--type">
+          <h3 class="subhead">Typography</h3>
+          <div class="pk-type2">
+            <div class="pk-type2__aa">Aa</div>
+            <div>
+              <p class="pk-type2__name">Poppins</p>
+              <p class="pk-type2__chars">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 ₹</p>
+            </div>
           </div>
-        </div>
-        <div class="cs-card">
-          <h3 class="subhead">Navigation</h3>
-          <ul class="pk-nav">
-            <li>Home</li><li class="is-on">Transactions</li><li>Budget</li><li>Profile</li>
+          <ul class="pk-scale">
+            <li><span class="w600">₹ 12,000</span><em>Amount · SemiBold</em></li>
+            <li><span class="w500 s20">Salary</span><em>Title · Medium</em></li>
+            <li><span class="w400 s15">Monthly Salary Credited</span><em>Body · Regular</em></li>
+            <li><span class="w400 s13">Dec 01, 2025 · 10:00 AM</span><em>Meta · Regular</em></li>
           </ul>
-          <p class="pk-note">Four tabs at the bottom keep the whole app one tap away.</p>
         </div>
+      </div>
+
+      <div class="pk-ds__block pk-comp">
+        <h3 class="subhead">Components</h3>
+        <div class="pk-comp__grid">
+          <figure class="pk-comp__item pk-comp__item--a"><div class="pk-comp__img"><img src="assets/images/projects/pocketly/ds/card-summary.webp" width="788" height="414" loading="lazy" alt="Summary card for an income transaction."></div><figcaption><strong>Summary card · income</strong>Logo tile, title, category tag, amount in green, date and time.</figcaption></figure>
+          <figure class="pk-comp__item pk-comp__item--b"><div class="pk-comp__img"><img src="assets/images/projects/pocketly/ds/card-summary-out.webp" width="774" height="410" loading="lazy" alt="Summary card for an expense transaction."></div><figcaption><strong>Summary card · expense</strong>Same card; the amount turns red with a minus sign.</figcaption></figure>
+          <figure class="pk-comp__item pk-comp__item--c"><div class="pk-comp__img"><img src="assets/images/projects/pocketly/ds/card-details.webp" width="788" height="380" loading="lazy" alt="Details card with category, payment and status rows."></div><figcaption><strong>Details list</strong>Label on the left, value on the right: tag, payment icon, status.</figcaption></figure>
+          <figure class="pk-comp__item pk-comp__item--d"><div class="pk-comp__img"><img src="assets/images/projects/pocketly/ds/card-notes.webp" width="788" height="212" loading="lazy" alt="Notes card."></div><figcaption><strong>Notes card</strong>A short line of context.</figcaption></figure>
+          <figure class="pk-comp__item pk-comp__item--e"><div class="pk-comp__img"><img src="assets/images/projects/pocketly/ds/actions.webp" width="760" height="200" loading="lazy" alt="Edit Transaction button and red Delete Transaction link."></div><figcaption><strong>Actions</strong>Neutral primary action, destructive action in red text.</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="pk-ds__block pk-navblock">
+        <div>
+          <h3 class="subhead">Navigation</h3>
+          <p class="pk-note">A bottom bar with four tabs keeps everything one tap away: <strong>Home</strong>, <strong>Transactions</strong>, <strong>Budget</strong> and <strong>Profile</strong>. Outline icons with labels keep it calm and easy to read.</p>
+        </div>
+        <div class="pk-navblock__img"><img src="assets/images/projects/pocketly/ds/nav.webp" width="780" height="100" loading="lazy" alt="Bottom navigation with Home, Transactions, Budget and Profile tabs."></div>
       </div>
     </section>
 
