@@ -701,14 +701,7 @@ body.is-leaving { opacity: 0; }
 /* 5. Values on a wavy path: the accent line draws in as you scroll,
    and each value lights up (icon draws, title gets a marker highlight) as the line reaches it */
 .values { position: relative; isolation: isolate; }
-/* soft tinted wash behind the row so the glass tiles have something to frost */
-.values::before {
-  content: ""; position: absolute; inset: -40px 0 10%; z-index: -1;
-  -webkit-mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 40%, transparent 100%);
-          mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 40%, transparent 100%);
-  background: radial-gradient(40% 70% at 20% 40%, color-mix(in srgb, var(--hold) 14%, transparent), transparent),
-              radial-gradient(40% 70% at 75% 50%, color-mix(in srgb, #7A5AF5 8%, transparent), transparent);
-}
+
 [data-theme="dark"] .icon-tile--value { background: linear-gradient(150deg, rgba(110,155,255,.16), rgba(110,155,255,.05)); border-color: rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
 [data-theme="dark"] .value.is-lit .icon-tile--value { background: linear-gradient(145deg, color-mix(in srgb, var(--hold) 18%, rgba(255,255,255,.06)), rgba(255,255,255,.03)); border-color: rgba(255,255,255,.14); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
 .values__path { position: absolute; left: 0; top: 0; width: 100%; height: 130px; overflow: visible; }
@@ -720,18 +713,17 @@ body.is-leaving { opacity: 0; }
 
 .icon-tile--value {
   width: 72px; height: 72px; border-radius: 20px; color: var(--muted);
-  color: color-mix(in srgb, var(--hold) 55%, var(--muted));
+  color: var(--hold); border-width: 1.5px;
   background: linear-gradient(150deg, rgba(232,240,255,.85), rgba(214,228,255,.45));
   border-color: rgba(255,255,255,.85);
-  -webkit-backdrop-filter: blur(12px) saturate(150%); backdrop-filter: blur(12px) saturate(150%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(47,111,235,.08), 0 8px 20px rgba(47,111,235,.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(47,111,235,.08);
   transition: background-color .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease), scale .5s var(--ease), box-shadow .5s var(--ease);
 }
 .value.is-lit .icon-tile--value {
   color: var(--hold); scale: 1.05;
   background: linear-gradient(150deg, rgba(219,232,255,.95), rgba(190,212,255,.55));
   border-color: rgba(255,255,255,.95);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,1), inset 0 -1px 0 rgba(47,111,235,.12), 0 10px 24px rgba(47,111,235,.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,1), inset 0 -1px 0 rgba(47,111,235,.12);
   animation: tile-bob 5s ease-in-out infinite;
 }
 .value:nth-child(2).is-lit .icon-tile--value { animation-delay: .5s; }
@@ -765,7 +757,13 @@ body.is-leaving { opacity: 0; }
 /* 7. Hobbies */
 .hobbies { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 32px; margin-top: 44px; }
 .hobby__img { aspect-ratio: 1; margin-bottom: 16px; border-radius: 18px; transition: transform .4s var(--ease); }
-.hobby__img img { width: 100%; height: 100%; object-fit: contain; }
+.hobby__img img, .hobby__img svg { width: 100%; height: 100%; object-fit: contain; }
+.hobby__art { display: grid; place-items: center; padding: 28px; background: linear-gradient(160deg, #EEF4FF, #F8FAFF); border: 1px solid var(--line); }
+[data-theme="dark"] .hobby__art { background: linear-gradient(160deg, #1A2233, #161A22); }
+.hobby__art .ball { transform-box: fill-box; transform-origin: center; animation: ball-bob 2.6s ease-in-out infinite; }
+.hobby__art .plane { animation: plane-fly 6s ease-in-out infinite; }
+@keyframes ball-bob { 0%,100% { translate: 0 0; } 50% { translate: -10px -14px; rotate: 160deg; } }
+@keyframes plane-fly { 0%,100% { translate: 0 0; } 50% { translate: 10px -8px; } }
 .hobby:hover .hobby__img { transform: translateY(-6px) rotate(-2deg); }
 .hobby h3 { margin: 4px 0 4px; font-size: 17px; font-weight: 600; color: var(--text-strong); }
 .hobby p:not(.note) { margin: 0; font-size: 14px; color: var(--muted); }
