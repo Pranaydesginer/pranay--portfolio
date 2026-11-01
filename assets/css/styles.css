@@ -1327,6 +1327,26 @@ body.is-leaving { opacity: 0; }
   .pk-type2__aa { width: 80px; height: 80px; font-size: 36px; }
 }
 
+/* Pocketly: tighter spacing and calmer mockups */
+.cs .section { padding-top: 64px; padding-bottom: 64px; }
+.cs .a-head { margin-bottom: 32px; }
+.pk-hero { grid-template-columns: repeat(2, minmax(0, 230px)); justify-content: center; gap: 40px; max-width: none; }
+.pk-hero .pk-phone:nth-child(2) { translate: 0 0; }
+.pk-anatomy { grid-template-columns: 240px 1fr; gap: 48px; }
+.pk-pair { grid-template-columns: repeat(2, minmax(0, 220px)); gap: 48px; }
+.pk-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pk-chips .pk-note { margin-top: 16px; }
+.pk-pay { padding: 6px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); font-size: 13px; font-weight: 500; color: var(--text-strong); }
+.pk-navblock { grid-template-columns: 1fr; gap: 18px; justify-items: center; text-align: center; }
+.pk-navblock__text { max-width: 560px; }
+.pk-navblock__img { width: 100%; max-width: 560px; }
+@media (max-width: 640px) {
+  .cs .section { padding-top: 48px; padding-bottom: 48px; }
+  .pk-hero { grid-template-columns: repeat(2, minmax(0, 150px)); gap: 16px; }
+  .pk-chips { grid-template-columns: 1fr; }
+  .pk-pair { gap: 16px; }
+}
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
