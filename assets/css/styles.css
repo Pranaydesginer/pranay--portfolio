@@ -1003,6 +1003,40 @@ body.is-leaving { opacity: 0; }
   .browser__bar i { display: none; }
 }
 
+/* Case study: problem, research, delivered */
+.p-card__facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin: 0 0 16px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.p-card__facts dt { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.p-card__facts dd { margin: 2px 0 0; font-size: 14px; font-weight: 500; color: var(--text-strong); }
+.p-card__problem { margin: 0 0 24px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+.p-card__problem span { display: inline-block; margin-right: 6px; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); }
+
+.cs-problem { max-width: 780px; margin: 0 0 36px; font-size: clamp(19px, 1.8vw, 23px); font-weight: 300; line-height: 1.5; color: var(--text-strong); }
+.cs-problem strong { font-weight: 600; }
+.cs-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cs-compare__col--before { background: var(--surface); }
+.cs-compare__col--after { border-color: color-mix(in srgb, var(--hold) 30%, var(--line)); }
+.cs-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.cs-checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.55; color: var(--text); }
+.cs-checks strong { font-weight: 600; color: var(--text-strong); }
+.cs-mark { flex: none; display: grid; place-items: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; }
+.cs-compare__col--before .cs-mark { color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.cs-compare__col--after .cs-mark { color: var(--hold); background: color-mix(in srgb, var(--hold) 12%, transparent); }
+
+.cs-research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cs-research .icon-tile { color: var(--hold); margin-bottom: 18px; }
+.cs-research h3 { margin: 0 0 8px; font-size: 19px; font-weight: 600; color: var(--text-strong); }
+.cs-research p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+.cs-delivered { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.cs-delivered li { display: grid; grid-template-columns: 280px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.cs-delivered strong { font-size: 18px; font-weight: 600; color: var(--text-strong); }
+.cs-delivered span { font-size: 15.5px; line-height: 1.6; color: var(--muted); }
+
+@media (max-width: 1020px) {
+  .cs-compare, .cs-research-grid { grid-template-columns: 1fr; }
+  .cs-delivered li { grid-template-columns: 1fr; gap: 4px; }
+}
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
