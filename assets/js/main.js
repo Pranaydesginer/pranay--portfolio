@@ -101,12 +101,97 @@
     });
   }
 
-  /* ---------- 6. Page reveal (defined early, used below) ---------- */
+  /* ---------- 6. Page reveal + scroll reveal ----------
+     Headings fade in word by word; other blocks fade up as they scroll
+     into view. Nothing animates until the welcome/intro has finished. */
+  var SPLIT_SEL = '.hero__title, .section-title';
+  var SCROLL_SEL = [
+    '.eyebrow', '.section-sub', '.prose p', '.about-hero .meta', '.about-hero .hero__cta', '.about-photo',
+    '.card', '.process__step', '.timeline__item', '.subhead', '.tag-list',
+    '.faq__item', '.contact-link', '.contact-form'
+  ].join(',');
+
+  // Wrap each word of a heading in a span, keeping <strong> etc. intact
+  function splitWords(el) {
+    var i = 0;
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var w = document.createElement('span');
+            w.className = 'w';
+            w.style.setProperty('--i', i++);
+            w.textContent = part;
+            frag.appendChild(w);
+          });
+          child.parentNode.replaceChild(frag, child);
+        } else if (child.nodeType === 1) {
+          walk(child);
+        }
+      });
+    })(el);
+    el.classList.add('words');
+  }
+
+  function setupScrollReveal() {
+    if (reducedMotion || !('IntersectionObserver' in window)) return;
+    document.querySelectorAll(SPLIT_SEL).forEach(splitWords);
+    // Stagger siblings that appear together (cards, chips, FAQ rows...)
+    document.querySelectorAll(SCROLL_SEL).forEach(function (el) {
+      if (el.classList.contains('reveal')) return;      // hero items use the load reveal
+      var idx = 0, sib = el.previousElementSibling;
+      while (sib && idx < 6) { if (sib.matches(SCROLL_SEL)) idx++; sib = sib.previousElementSibling; }
+      el.style.setProperty('--sd', (idx * 0.12) + 's');
+      el.classList.add('sr');
+    });
+  }
+
+  function startObserving() {
+    var targets = document.querySelectorAll('.sr, .words');
+    if (!targets.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    targets.forEach(function (t) { io.observe(t); });
+  }
+
+  setupScrollReveal();
+
   function revealPage() {
     document.body.classList.remove('is-locked');
-    // next frame so the transition actually runs
-    requestAnimationFrame(function () { root.classList.add('revealed'); });
+    // next frame so the transitions actually run
+    requestAnimationFrame(function () {
+      root.classList.add('revealed');
+      startObserving();
+    });
   }
+
+  /* ---------- 8. Page transitions ----------
+     Internal links fade the page out, then the next page fades in. */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var href = a.getAttribute('href');
+    if (a.target === '_blank' || a.hasAttribute('download') || !/^[\w-]+\.html(#.*)?$/.test(href)) return;
+    if (a.getAttribute('aria-current') === 'page') { e.preventDefault(); return; }
+    e.preventDefault();
+    click(480);
+    setItem('sessionStorage', 'pp-nav', '1');
+    document.body.classList.add('is-leaving');
+    setTimeout(function () { window.location.href = href; }, reducedMotion ? 0 : 420);
+  });
+  // Coming back with the browser's Back button: undo the fade-out
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) document.body.classList.remove('is-leaving');
+  });
 
   /* ---------- 5. Intro transition ---------- */
   var intro = document.getElementById('intro');

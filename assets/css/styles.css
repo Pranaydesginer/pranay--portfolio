@@ -55,7 +55,7 @@ body {
   color: var(--text);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  transition: background-color .3s var(--ease), color .3s var(--ease);
+  transition: background-color .3s var(--ease), color .3s var(--ease), opacity .4s var(--ease);
 }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
@@ -334,11 +334,33 @@ body { overflow-x: hidden; }
 .intro__skip:hover { color: var(--text-strong); }
 
 /* ---------- 10. Load reveal ---------- */
-.js .reveal { opacity: 0; transform: translateY(14px); }
+.js .reveal { opacity: 0; transform: translateY(18px); }
 .js.revealed .reveal {
   opacity: 1; transform: none;
-  transition: opacity .7s var(--ease) var(--d, 0s), transform .7s var(--ease) var(--d, 0s);
+  transition: opacity 1.1s var(--ease) calc(var(--d, 0s) * 2), transform 1.1s var(--ease) calc(var(--d, 0s) * 2);
 }
+
+/* Scroll reveal: blocks fade up as they enter the screen */
+.js .sr { opacity: 0; transform: translateY(26px); }
+.js .sr.is-in {
+  opacity: 1; transform: none;
+  transition: opacity 1s var(--ease) var(--sd, 0s), transform 1s var(--ease) var(--sd, 0s);
+}
+/* Headings: each word fades and un-blurs in turn */
+.js .words .w { display: inline-block; opacity: 0; transform: translateY(.35em); filter: blur(6px); }
+.js .words.is-in .w {
+  opacity: 1; transform: none; filter: none;
+  transition: opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease);
+  transition-delay: calc(var(--i) * 90ms + .1s);
+}
+/* Hero heading: words wait for the hero block to start */
+.js .hero__title.words { opacity: 1; transform: none; }
+.js .hero__title.words.is-in .w { transition-delay: calc(var(--i) * 90ms + .35s); }
+
+/* Page transitions between Home / About / Projects */
+body.is-leaving { opacity: 0; }
+.nav-in body { animation: page-in .6s var(--ease) both; }
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
 
 /* ---------- 11. Responsive ---------- */
 @media (max-width: 1020px) {
