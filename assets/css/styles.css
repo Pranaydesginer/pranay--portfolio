@@ -20,6 +20,10 @@
   --btn: #2A2A2A;
   --btn-text: #FFFFFF;
   --accent: #E5383B;
+  /* Trial: handwritten notes + values highlight in blue.
+     To go back to red, set both to var(--accent). */
+  --note: #2F6FEB;
+  --hold: #2F6FEB;
 
 
   --maxw: 1240px;
@@ -43,6 +47,8 @@
   --btn: #F2F2F2;
   --btn-text: #141414;
   --accent: #FF5A5F;
+  --note: #6E9BFF;
+  --hold: #6E9BFF;
 }
 
 /* ---------- 2. Base ---------- */
@@ -560,7 +566,7 @@ body.is-leaving { opacity: 0; }
 /* Handwritten notes (Caveat), in the accent colour */
 .note {
   margin: 0; font-family: "Caveat", "Segoe Print", cursive;
-  font-size: 25px; font-weight: 600; line-height: 1.1; color: var(--accent);
+  font-size: 25px; font-weight: 600; line-height: 1.1; color: var(--note);
 }
 .note--center { display: inline-block; margin-top: 44px; rotate: -3deg; }
 .note--side { rotate: -4deg; margin-bottom: 6px; white-space: nowrap; }
@@ -624,8 +630,10 @@ body.is-leaving { opacity: 0; }
   -webkit-mask-composite: xor; mask-composite: exclude;
   animation: ring-turn 10s linear infinite, float 6s ease-in-out infinite;
 }
+.note[lang="te"] { font-family: "Gurajada", "Noto Sans Telugu", "Nirmala UI", sans-serif; font-size: 34px; font-weight: 400; line-height: 1; }
+.note__emoji { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; font-size: 24px; margin-left: 4px; }
 .note--photo {
-  position: absolute; z-index: 2; top: -18px; left: -150px; rotate: -7deg; white-space: nowrap;
+  position: absolute; z-index: 2; top: -64px; left: -120px; rotate: -4deg; white-space: nowrap;
 }
 .note__arrow { position: absolute; right: -40px; top: 18px; }
 
@@ -689,7 +697,7 @@ body.is-leaving { opacity: 0; }
 .values { position: relative; }
 .values__path { position: absolute; left: 0; top: 0; width: 100%; height: 130px; overflow: visible; }
 .values__base { fill: none; stroke: var(--line-dot); stroke-width: 1.5; stroke-dasharray: 5 7; }
-.values__progress { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .25s linear; }
+.values__progress { fill: none; stroke: var(--hold); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .25s linear; }
 .no-anim .values__progress { stroke-dashoffset: 0; }
 .values__list { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; text-align: center; }
 .value:nth-child(even) { margin-top: 68px; }
@@ -699,10 +707,10 @@ body.is-leaving { opacity: 0; }
   transition: background-color .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease), scale .5s var(--ease), box-shadow .5s var(--ease);
 }
 .value.is-lit .icon-tile--value {
-  color: var(--accent); scale: 1.08;
-  background: color-mix(in srgb, var(--accent) 9%, var(--surface-2));
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
-  box-shadow: 0 14px 30px color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--hold); scale: 1.08;
+  background: color-mix(in srgb, var(--hold) 9%, var(--surface-2));
+  border-color: color-mix(in srgb, var(--hold) 35%, var(--line));
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--hold) 16%, transparent);
   animation: tile-bob 5s ease-in-out infinite;
 }
 .value:nth-child(2).is-lit .icon-tile--value { animation-delay: .5s; }
@@ -714,12 +722,12 @@ body.is-leaving { opacity: 0; }
 .js:not(.no-anim) .value.is-lit .icon-tile--value svg * { stroke-dashoffset: 0; }
 
 .value__num { display: block; margin-top: 18px; font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--muted); transition: color .5s; }
-.value.is-lit .value__num { color: var(--accent); }
+.value.is-lit .value__num { color: var(--hold); }
 .value h3 { margin: 6px 0 8px; font-size: 21px; font-weight: 600; letter-spacing: -.015em; color: var(--text-strong); }
 /* marker-style highlight that sweeps under the title */
 .hl {
   padding: 0 3px;
-  background: linear-gradient(color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent) 22%, transparent)) no-repeat 0 90% / 0% 40%;
+  background: linear-gradient(color-mix(in srgb, var(--hold) 22%, transparent), color-mix(in srgb, var(--hold) 22%, transparent)) no-repeat 0 90% / 0% 40%;
   transition: background-size .8s var(--ease) .3s;
 }
 .value.is-lit .hl, .no-anim .hl { background-size: 100% 40%; }
@@ -793,7 +801,8 @@ body.is-leaving { opacity: 0; }
   .hobbies { gap: 16px; }
   .polaroids { gap: 18px; }
   .polaroid:nth-child(2), .polaroid:nth-child(4) { margin-top: 24px; }
-  .note--photo { left: -6px; top: -44px; }
+  .note.note--photo[lang="te"] { left: 0; top: -50px; font-size: 25px; }
+  .note--photo .note__emoji { font-size: 18px; }
   .note__arrow { display: none; }
   .a-intro__line { font-size: 18px; }
 }
