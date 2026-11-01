@@ -136,7 +136,7 @@
     '.eyebrow', '.a-lead', '.subhead', '.tag-list', '.faq__item',
     '.flow__step', '.flow__arrow', '.step', '.xp__card', '.value', '.hobby', '.place',
     '.note', '.connect-list', '.thread',
-    '.p-card', '.cs-card', '.cs-step', '.cs-feature__text', '.cs-feature__media', '.cs-devices', '.cs-next__card', '.cs-problem', '.cs-pain', '.cs-compare__col', '.cs-research', '.cs-delivered li', '.p-card__facts', '.a-connect .btn', '.a-connect__form'
+    '.p-card', '.cs-card', '.cs-step', '.cs-feature__text', '.cs-feature__media', '.cs-devices', '.cs-next__card', '.cs-problem', '.cs-pain', '.life__node', '.cs-phonefig', '.ds-status__item', '.ds-window', '.cs-compare__col', '.cs-research', '.cs-delivered li', '.p-card__facts', '.a-connect .btn', '.a-connect__form'
   ].join(',');
 
   // Wrap each word of a heading in a span, keeping <strong> etc. intact
