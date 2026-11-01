@@ -108,7 +108,7 @@
   var SPLIT_SEL = '.hero__title, .section-title, .about-name';
   var SCROLL_SEL = [
     '.eyebrow', '.a-lead', '.subhead', '.tag-list', '.faq__item',
-    '.flow__step', '.flow__arrow', '.step', '.xp__card', '.value', '.hobby', '.polaroid',
+    '.flow__step', '.flow__arrow', '.step', '.xp__card', '.value', '.hobby', '.place',
     '.note', '.connect-list', '.a-connect .btn', '.a-connect__form'
   ].join(',');
 
