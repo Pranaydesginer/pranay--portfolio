@@ -109,7 +109,8 @@
   var SCROLL_SEL = [
     '.eyebrow', '.a-lead', '.subhead', '.tag-list', '.faq__item',
     '.flow__step', '.flow__arrow', '.step', '.xp__card', '.value', '.hobby', '.place',
-    '.note', '.connect-list', '.thread', '.a-connect .btn', '.a-connect__form'
+    '.note', '.connect-list', '.thread',
+    '.p-card', '.cs-card', '.cs-step', '.cs-feature__text', '.cs-feature__media', '.cs-devices', '.cs-next__card', '.a-connect .btn', '.a-connect__form'
   ].join(',');
 
   // Wrap each word of a heading in a span, keeping <strong> etc. intact
