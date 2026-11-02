@@ -1377,6 +1377,8 @@ body.is-leaving { opacity: 0; }
 .reel__mock img { border-radius: 14px; }
 @media (max-width: 640px) { .pk-hero--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } }
 
+.gm-lane { color: #0A5BC4; background: #E8F0FC; }
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
