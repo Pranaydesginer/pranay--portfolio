@@ -1406,6 +1406,16 @@ body.is-leaving { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .gm-splash .gm-splash__logo, .gm-splash .gm-splash__bus { animation: none; } }
 
+.kfc-lane { color: #C8102E; background: #FDECEE; }
+.kfc-note { margin: -30px 0 40px; font-size: 13px; color: var(--muted); }
+.kfc-shot { margin: 0; width: 100%; max-width: 560px; overflow: hidden; border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(0,0,0,.08); }
+.kfc-shot img { display: block; width: 100%; height: auto; }
+.kfc-row { grid-template-columns: .8fr 1.2fr; }
+.kfc-row.pk-screen--flip { grid-template-columns: 1.2fr .8fr; }
+.kfc-browser { max-width: 620px; margin: 0 auto; }
+.kfc-full .kfc-browser { max-width: 560px; }
+@media (max-width: 1020px) { .kfc-row, .kfc-row.pk-screen--flip { grid-template-columns: 1fr; } }
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
