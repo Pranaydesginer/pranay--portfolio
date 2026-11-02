@@ -1416,6 +1416,21 @@ body.is-leaving { opacity: 0; }
 .kfc-full .kfc-browser { max-width: 560px; }
 @media (max-width: 1020px) { .kfc-row, .kfc-row.pk-screen--flip { grid-template-columns: 1fr; } }
 
+.kfc-pairs { display: grid; gap: 56px; }
+.kfc-pair__title { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font-size: 22px; font-weight: 600; color: var(--text-strong); }
+.kfc-pair__title span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--btn); color: var(--btn-text); font-size: 13px; }
+.kfc-pair__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.kfc-side { padding: 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-2); display: grid; gap: 16px; align-content: start; }
+.kfc-side--before { background: var(--surface); }
+.kfc-side--after { border-color: color-mix(in srgb, #1FA55B 35%, var(--line)); }
+.kfc-tag { justify-self: start; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+.kfc-tag--before { color: #C8102E; background: #FDECEE; }
+.kfc-tag--after { color: #13804A; background: #E5F6EC; }
+.kfc-side .kfc-shot { max-width: none; box-shadow: none; }
+.kfc-side--before .cs-mark { color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.kfc-side--after .cs-mark { color: #1FA55B; background: #E5F6EC; }
+@media (max-width: 760px) { .kfc-pair__grid { grid-template-columns: 1fr; } }
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
