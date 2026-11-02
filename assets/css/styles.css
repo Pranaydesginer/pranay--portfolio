@@ -1379,6 +1379,23 @@ body.is-leaving { opacity: 0; }
 
 .gm-lane { color: #0A5BC4; background: #E8F0FC; }
 
+.gm-splash { position: relative; }
+.gm-splash__road { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.gm-splash .gm-splash__bus {
+  position: absolute; left: 62.87%; top: 54.5%; width: 34.96%; height: auto;
+  animation: gm-bus 7s cubic-bezier(.45,.05,.3,1) infinite;
+  -webkit-mask: linear-gradient(to right, #000 78%, transparent); mask: linear-gradient(to right, #000 78%, transparent);
+}
+@keyframes gm-bus {
+  0%   { transform: translateX(120%); }
+  28%  { transform: translateX(-4%); }
+  33%  { transform: translateX(0); }
+  62%  { transform: translateX(0); }
+  92%  { transform: translateX(-200%); }
+  100% { transform: translateX(-200%); }
+}
+@media (prefers-reduced-motion: reduce) { .gm-splash__bus { animation: none; } }
+
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
