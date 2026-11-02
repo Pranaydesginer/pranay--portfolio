@@ -1380,21 +1380,34 @@ body.is-leaving { opacity: 0; }
 .gm-lane { color: #0A5BC4; background: #E8F0FC; }
 
 .gm-splash { position: relative; }
-.gm-splash__road { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.gm-splash__layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+/* logo starts large and zooms out into place, like the prototype */
+.gm-splash .gm-splash__logo {
+  position: absolute; left: 14.01%; top: 11.85%; width: 71.66%; height: auto;
+  transform-origin: 50% 50%;
+  animation: gm-logo 8s cubic-bezier(.3,.7,.2,1) infinite;
+}
+/* bus drives in from the right after the logo settles, then stops */
 .gm-splash .gm-splash__bus {
   position: absolute; left: 62.87%; top: 54.5%; width: 34.96%; height: auto;
-  animation: gm-bus 7s cubic-bezier(.45,.05,.3,1) infinite;
+  animation: gm-bus 8s cubic-bezier(.3,.7,.2,1) infinite;
   -webkit-mask: linear-gradient(to right, #000 78%, transparent); mask: linear-gradient(to right, #000 78%, transparent);
 }
-@keyframes gm-bus {
-  0%   { transform: translateX(120%); }
-  28%  { transform: translateX(-4%); }
-  33%  { transform: translateX(0); }
-  62%  { transform: translateX(0); }
-  92%  { transform: translateX(-200%); }
-  100% { transform: translateX(-200%); }
+@keyframes gm-logo {
+  0%   { transform: translateY(18%) scale(1.75); opacity: 0; }
+  5%   { opacity: 1; }
+  22%  { transform: none; opacity: 1; }
+  90%  { transform: none; opacity: 1; }
+  97%, 100% { transform: none; opacity: 0; }
 }
-@media (prefers-reduced-motion: reduce) { .gm-splash__bus { animation: none; } }
+@keyframes gm-bus {
+  0%, 22% { transform: translateX(130%); opacity: 1; }
+  40%  { transform: translateX(-3%); }
+  45%  { transform: translateX(0); }
+  90%  { transform: translateX(0); opacity: 1; }
+  97%, 100% { transform: translateX(0); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .gm-splash .gm-splash__logo, .gm-splash .gm-splash__bus { animation: none; } }
 
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
