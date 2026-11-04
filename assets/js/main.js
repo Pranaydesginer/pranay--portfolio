@@ -259,6 +259,12 @@
   window.addEventListener('pageshow', function (e) {
     if (e.persisted) document.body.classList.remove('is-leaving');
   });
+  // Arriving from a link on this site: always start at the top of the page
+  // (unless the link points to a section, e.g. projects.html#websites)
+  if (root.classList.contains('nav-in') && !location.hash) {
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    window.scrollTo(0, 0);
+  }
 
   /* ---------- 5. Intro transition ---------- */
   var intro = document.getElementById('intro');
