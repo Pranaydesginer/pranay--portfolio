@@ -192,7 +192,7 @@
         }
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
-    targets.forEach(function (t) { io.observe(t); });
+    targets.forEach(function (t) { if (t.getClientRects().length) io.observe(t); else t.classList.add("is-in"); });
   }
 
   setupScrollReveal();
