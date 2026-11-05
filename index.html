@@ -18,7 +18,7 @@
       root.setAttribute('data-theme', theme);
       root.classList.add('js');
       // Welcome + intro play on every fresh visit; skipped when arriving from another page of the site
-      try { if (sessionStorage.getItem('pp-nav')) { root.classList.add('nav-in', 'welcomed'); sessionStorage.removeItem('pp-nav'); } } catch (e) {}
+      var navIn = false; try { if (sessionStorage.getItem('pp-nav')) { navIn = true; sessionStorage.removeItem('pp-nav'); } } catch (e) {} try { if (window.name === 'pp-nav') { navIn = true; window.name = ''; } } catch (e) {} if (navIn) root.classList.add('nav-in', 'welcomed');
     })();
   </script>
 

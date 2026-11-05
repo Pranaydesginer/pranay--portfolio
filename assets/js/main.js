@@ -252,6 +252,7 @@
     e.preventDefault();
     click(480);
     setItem('sessionStorage', 'pp-nav', '1');
+    try { window.name = 'pp-nav'; } catch (err) {}
     document.body.classList.add('is-leaving');
     setTimeout(function () { window.location.href = href; }, reducedMotion ? 0 : 420);
   });
@@ -261,9 +262,26 @@
   });
   // Arriving from a link on this site: always start at the top of the page
   // (unless the link points to a section, e.g. projects.html#websites)
-  if (root.classList.contains('nav-in') && !location.hash) {
-    try { history.scrollRestoration = 'manual'; } catch (e) {}
+  function toTop() {
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0; document.body.scrollTop = 0;
+  }
+  // Case studies always open at the start, even with the browser's Back button
+  var isCaseStudy = !!document.querySelector('main.cs');
+  if (isCaseStudy) {
+    window.addEventListener('pageshow', function (e) { if (e.persisted && !location.hash) toTop(); });
+  }
+  if ((isCaseStudy || root.classList.contains('nav-in')) && !location.hash) {
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    toTop();
+    requestAnimationFrame(toTop);
+    var touched = false;
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, function () { touched = true; }, { once: true, passive: true }); });
+    window.addEventListener('load', function () { if (!touched) toTop(); });
+    // Inside an embedded preview the frame itself may sit lower on the page
+    if (window.self !== window.top) {
+      try { document.documentElement.scrollIntoView({ block: 'start' }); } catch (e) {}
+    }
   }
 
   /* ---------- 5. Intro transition ---------- */
