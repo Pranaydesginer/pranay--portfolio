@@ -699,15 +699,6 @@ body.is-leaving { opacity: 0; }
 .xp__card--now .xp__list li::before { background: var(--hold); }
 .xp__group { margin: 22px 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text-strong); }
 .xp__where { align-self: stretch; margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
-.xp__team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.xp__team li { display: grid; gap: 2px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
-.xp__team strong { font-size: 14px; font-weight: 600; color: var(--text-strong); }
-.xp__team span { font-size: 13px; line-height: 1.45; color: var(--muted); }
-.xp__flow { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 6px; }
-.xp__flow li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 99px; border: 1px solid color-mix(in srgb, var(--hold) 30%, var(--line)); background: color-mix(in srgb, var(--hold) 7%, var(--surface)); font-size: 13px; font-weight: 500; color: var(--text-strong); }
-.xp__flow li span { font-size: 11px; font-weight: 700; color: var(--hold); }
-.xp__flow li:not(:last-child)::after { content: "→"; margin-left: 6px; color: var(--muted); font-weight: 400; }
-@media (max-width: 640px) { .xp__team { grid-template-columns: 1fr; } }
 
 /* 5. Values on a wavy path: the accent line draws in as you scroll,
    and each value lights up (icon draws, title gets a marker highlight) as the line reaches it */
@@ -1559,3 +1550,9 @@ body.is-leaving { opacity: 0; }
 
 .form-sent { margin: 12px 0 0; padding: 10px 14px; border-radius: 10px; background: color-mix(in srgb, #1FA55B 10%, var(--surface)); color: var(--text); font-size: 13.5px; line-height: 1.5; }
 .form-sent a { color: var(--text-strong); font-weight: 600; }
+
+.xp__text { margin: 0 0 14px; font-size: 15.5px; line-height: 1.75; color: var(--text); }
+.xp__text:first-child { font-size: 16.5px; color: var(--text-strong); }
+.xp__text:last-child { margin-bottom: 0; }
+/* Key words read like a highlighter pass, not separate labels */
+.xp__text mark { padding: 0 2px; border-radius: 3px; color: var(--text-strong); font-weight: 600; background: linear-gradient(transparent 58%, color-mix(in srgb, var(--hold) 22%, transparent) 58%); }
