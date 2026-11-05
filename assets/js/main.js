@@ -79,6 +79,25 @@
   /* ---------- 7. Contact form (About page) ----------
      No server: builds a mailto: link so the visitor's email app opens
      with the message filled in. */
+  // Email links: inside an embedded preview a mailto: page load is blocked,
+  // so open it in a new window there; on the real site it opens as usual.
+  var inFrame = window.self !== window.top;
+  function openMail(url) {
+    if (inFrame) { try { window.open(url, '_blank', 'noopener'); } catch (err) {} }
+    else window.location.href = url;
+  }
+  document.addEventListener('click', function (e) {
+    var m = e.target.closest && e.target.closest('a[href^="mailto:"]');
+    if (m && inFrame) { e.preventDefault(); openMail(m.getAttribute('href')); }
+  });
+  // "Say hello" jumps to the form and puts the cursor in the first field
+  var hello = document.querySelector('[data-say-hello]');
+  if (hello) hello.addEventListener('click', function (e) {
+    var f = document.getElementById('contactForm'); if (!f) return;
+    e.preventDefault();
+    f.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+    setTimeout(function () { var n = document.getElementById('cf-name'); if (n) n.focus({ preventScroll: true }); }, reducedMotion ? 0 : 500);
+  });
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (e) {
@@ -97,8 +116,9 @@
       var subject = 'Portfolio enquiry from ' + name.value.trim();
       var body = msg.value.trim() + '\n\n' + name.value.trim() + '\n' + email.value.trim();
       click(520);
-      window.location.href = 'mailto:pranaydesigner03@gmail.com?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      openMail('mailto:pranaydesigner03@gmail.com?subject=' +
+        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body));
+      var sent = document.getElementById('cf-sent'); if (sent) sent.hidden = false;
     });
   }
 
