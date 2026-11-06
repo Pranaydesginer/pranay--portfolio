@@ -13,49 +13,8 @@
   function getItem(store, key) { try { return window[store].getItem(key); } catch (e) { return null; } }
   function setItem(store, key, val) { try { window[store].setItem(key, val); } catch (e) {} }
 
-  /* ---------- 2. Sound (Web Audio, no files; off by default) ---------- */
-  var soundOn = getItem('localStorage', 'pp-sound') === 'on';
-  var audioCtx = null;
-  var soundBtn = document.getElementById('soundBtn');
-  var soundPill = document.getElementById('soundPill');
-
-  function click(freq) {
-    if (!soundOn) return;
-    try {
-      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-      var t = audioCtx.currentTime;
-      var osc = audioCtx.createOscillator();
-      var gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = freq;
-      gain.gain.setValueAtTime(0.0001, t);
-      gain.gain.exponentialRampToValueAtTime(0.08, t + 0.01);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
-      osc.connect(gain).connect(audioCtx.destination);
-      osc.start(t);
-      osc.stop(t + 0.13);
-    } catch (e) {}
-  }
-
-  function renderSound() {
-    [soundBtn, soundPill].forEach(function (el) {
-      if (el) el.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
-    });
-    var pillLabel = document.getElementById('soundPillLabel');
-    if (pillLabel) pillLabel.textContent = soundOn ? 'Sound on' : 'Sound off';
-  }
-
-  function toggleSound(e) {
-    if (e) e.stopPropagation(); // don't trigger the welcome "click to continue"
-    soundOn = !soundOn;
-    setItem('localStorage', 'pp-sound', soundOn ? 'on' : 'off');
-    renderSound();
-    click(660);
-  }
-
-  if (soundBtn) soundBtn.addEventListener('click', toggleSound);
-  if (soundPill) soundPill.addEventListener('click', toggleSound);
-  renderSound();
+  /* ---------- 2. Sound: removed. Kept as a no-op so the click hooks stay harmless. */
+  function click() {}
 
   /* ---------- 3. Theme ---------- */
   var themeBtn = document.getElementById('themeBtn');
