@@ -31,6 +31,47 @@
 </head>
 <body>
 
+  <!-- ============ WELCOME SCREEN (minimal) ============ -->
+  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-label="Welcome">
+    <div class="welcome__inner">
+      <!-- Laptop with "Welcome" typing on its screen -->
+      <div class="laptop" aria-hidden="true">
+        <div class="laptop__screen">
+          <span class="laptop__cam"></span>
+          <div class="laptop__display"><span id="welcomeText"></span><span class="caret"></span></div>
+        </div>
+        <div class="laptop__deck"><span class="laptop__keys"></span><span class="laptop__pad"></span></div>
+      </div>
+
+      <button class="enter-btn" id="welcomeEnter" type="button">
+        Enter
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4v7a4 4 0 0 1-4 4H4"/><path d="m9 10-5 5 5 5"/></svg>
+      </button>
+      <p class="welcome__hint">Enter or click to continue</p>
+    </div>
+    <button class="welcome__skip" id="welcomeSkip" type="button">Skip intro <span aria-hidden="true">→</span></button>
+  </div>
+
+  <!-- ============ INTRO TRANSITION ============ -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__cell">
+      <span class="intro__line intro__line--top"></span>
+      <span class="intro__line intro__line--bottom"></span>
+      <span class="intro__line intro__line--left"></span>
+      <span class="intro__line intro__line--right"></span>
+
+      <span class="intro__label intro__label--tl">Pranay Chowdary</span>
+      <span class="intro__label intro__label--tr">Product Designer</span>
+      <span class="intro__label intro__label--bl">Designing with AI</span>
+      <span class="intro__label intro__label--br">Portfolio · 2026</span>
+
+      <span class="intro__greet" id="introGreet"></span>
+      <span class="intro__block"><span>Welcome.</span></span>
+    </div>
+    <button class="intro__skip" id="introSkip" type="button">Skip intro <span aria-hidden="true">→</span></button>
+  </div>
+
+
   <!-- ============ NAVIGATION ============ -->
   <header class="nav">
     <div class="nav__inner">
@@ -139,7 +180,7 @@
       <div class="bring">
         <div class="bring__item"><span class="bring__num">01</span><h3>Simplify complex workflows</h3><p>I turn business rules into clear user flows, like a redeem process that runs from a customer app to a store ERP.</p></div>
         <div class="bring__item"><span class="bring__num">02</span><h3>Design the whole experience</h3><p>Complete journeys across web and mobile, with every status, state and edge case, not just single screens.</p></div>
-        <div class="bring__item"><span class="bring__num">03</span><h3>Collaborate across the team</h3><p>From requirement calls with PMs to Jira handoff for developers and UAT with QA, designs go all the way to release.</p></div>
+        <div class="bring__item"><span class="bring__num">03</span><h3>Collaborate with cross-functional teams</h3><p>From requirement calls with PMs to Jira handoff for developers and UAT with QA, designs go all the way to release.</p></div>
       </div>
     </section>
 

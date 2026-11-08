@@ -1715,3 +1715,17 @@ body.is-leaving { opacity: 0; }
 .text-link:hover { border-color: var(--text-strong); box-shadow: 0 6px 16px rgba(0,0,0,.06); }
 .text-link:hover span { translate: 3px 0; }
 .home-sec__head { align-items: center; }
+/* Place names in Inter (the handwriting font is no longer loaded) */
+.place__name { font-family: inherit !important; font-size: 24px !important; font-weight: 700 !important; letter-spacing: -.02em; }
+
+/* Welcome screen: Skip intro, matching the intro's Skip button but easier to spot */
+.welcome__skip, .intro__skip {
+  position: absolute; bottom: 24px; right: 24px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border: 1px solid var(--line); border-radius: 99px;
+  background: var(--surface-2); color: var(--text-strong);
+  font: 600 13px/1 var(--font); letter-spacing: 0; text-transform: none; cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05); transition: border-color .2s, box-shadow .2s;
+}
+.welcome__skip:hover, .intro__skip:hover { border-color: var(--text-strong); box-shadow: 0 6px 16px rgba(0,0,0,.08); color: var(--text-strong); }
+@media (max-width: 640px) { .welcome__skip, .intro__skip { bottom: 18px; right: 50%; translate: 50% 0; } }

@@ -371,6 +371,20 @@
     }
   }
 
+  // Skip intro: go straight to the site, without the greeting animation
+  function skipAll(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    if (done) return;
+    done = true;
+    setItem('sessionStorage', 'pp-welcomed', '1');
+    document.removeEventListener('keydown', welcomeKeys);
+    welcome.classList.add('is-leaving');
+    setTimeout(function () { welcome.style.display = 'none'; revealPage(); }, reducedMotion ? 0 : 300);
+  }
+  var welcomeSkip = document.getElementById('welcomeSkip');
+  if (welcomeSkip) welcomeSkip.addEventListener('click', skipAll);
+
+  document.addEventListener('keydown', function (e) { if (!done && e.key === 'Escape') skipAll(e); });
   document.addEventListener('keydown', welcomeKeys);
   welcome.addEventListener('click', continueOn);
 })();
