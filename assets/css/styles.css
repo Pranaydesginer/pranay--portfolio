@@ -1729,3 +1729,11 @@ body.is-leaving { opacity: 0; }
 }
 .welcome__skip:hover, .intro__skip:hover { border-color: var(--text-strong); box-shadow: 0 6px 16px rgba(0,0,0,.08); color: var(--text-strong); }
 @media (max-width: 640px) { .welcome__skip, .intro__skip { bottom: 18px; right: 50%; translate: 50% 0; } }
+
+/* What I bring: number, title and text line up across the three cards,
+   even when one title wraps onto two lines (desktop, three columns) */
+@media (min-width: 1021px) {
+  .bring { row-gap: 0; }
+  .bring__item { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+  .bring__item h3 { align-self: start; }
+}
