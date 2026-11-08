@@ -1708,3 +1708,10 @@ body.is-leaving { opacity: 0; }
 .fp-card__title a:focus-visible { outline: none; }
 .fp-card:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }
 .fp-card__link { position: relative; z-index: 1; }
+
+/* Section links ("View full experience", "View all projects"): small outline buttons */
+.text-link { gap: 8px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface-2); font-size: 14px; font-weight: 600; line-height: 1; box-shadow: 0 1px 2px rgba(0,0,0,.04); transition: border-color .2s, background .2s, box-shadow .2s; }
+.text-link span { transition: translate .2s var(--ease); }
+.text-link:hover { border-color: var(--text-strong); box-shadow: 0 6px 16px rgba(0,0,0,.06); }
+.text-link:hover span { translate: 3px 0; }
+.home-sec__head { align-items: center; }
