@@ -78,7 +78,7 @@
 
     <!-- ============ OVERVIEW ============ -->
     <section class="section" aria-labelledby="overview-title">
-      <div class="a-head"><h2 class="section-title a-title" id="overview-title">The <strong>idea.</strong></h2><p class="note note--side">one link, the whole stock.</p></div>
+      <div class="a-head"><h2 class="section-title a-title" id="overview-title">Project <strong>overview.</strong></h2></div>
       <div class="cs-split">
         <div class="cs-card">
           <h3 class="subhead">Overview</h3>
@@ -95,37 +95,53 @@
         </div>
       </div>
     </section>
+    <section class="section" aria-labelledby="role-title">
+      <div class="a-head"><h2 class="section-title a-title" id="role-title">My <strong>role.</strong></h2></div>
+      <div class="cs-split">
+        <div class="cs-card"><h3 class="subhead">What I did</h3><ul class="xp__list"><li>Led the design of Share Catalogue, from research to responsive high-fidelity UI.</li><li>Researched catalogue and e-commerce filtering, and mapped the flow from stock to request.</li><li>Designed the filter system, catalogue grid, product view and wishlist.</li><li>Designed consistent layouts for web, laptop and mobile, and handed them off to development.</li></ul></div>
+        <div class="cs-card"><h3 class="subhead">Who I worked with</h3><ul class="xp__list"><li><strong>Product Manager</strong>: scope, priorities and requirements.</li><li><strong>Clients &amp; stakeholders</strong>: business rules and real store workflows.</li><li><strong>Developers</strong>: feasibility, edge cases and handoff in Jira.</li><li><strong>QA</strong>: testing the built feature in UAT.</li></ul></div>
+      </div>
+    </section>
+
 
     <!-- ============ PROBLEM ============ -->
     <section class="section" aria-labelledby="problem-title">
-      <div class="a-head"><h2 class="section-title a-title" id="problem-title">The <strong>problem.</strong></h2><p class="note note--side">where it was breaking.</p></div>
-      <p class="cs-problem">Retailers relied on <strong>manual product sharing</strong>, making it difficult for customers to discover jewellery remotely while offering <strong>limited control over shared information</strong>.</p>
-      <div class="cs-pains">
-        <div class="cs-card cs-pain"><span class="cs-pain__num">01</span><h3>Manual sharing</h3><p>Retailers had to share their catalogue manually. There was no proper way to share it through the web, which made for a poor customer experience.</p></div>
-        <div class="cs-card cs-pain"><span class="cs-pain__num">02</span><h3>Limited control</h3><p>Retailers had limited control over the product information they shared.</p></div>
-        <div class="cs-card cs-pain"><span class="cs-pain__num">03</span><h3>No proper filtering</h3><p>Customers had to type from–to ranges into input fields, and there was no sidebar filtration.</p></div>
+      <div class="a-head"><h2 class="section-title a-title" id="problem-title">The <strong>problem.</strong></h2></div>
+      <div class="cs-split">
+        <div class="cs-card"><h3 class="subhead">Business problem</h3><p>Retailers shared their catalogue manually, with no proper way to share it through the web and limited control over the product information they shared.</p></div>
+        <div class="cs-card"><h3 class="subhead">User problem</h3><p>Customers found it hard to discover jewellery remotely. Filtering meant typing from–to ranges into input fields, with no sidebar filters.</p></div>
       </div>
+    </section>
+
+    <section class="section" aria-labelledby="workflow-title">
+      <div class="a-head"><h2 class="section-title a-title" id="workflow-title">Existing workflow → <strong>proposed solution.</strong></h2></div>
       <div class="cs-compare">
-        <div class="cs-card cs-compare__col cs-compare__col--before"><h3 class="subhead">Before</h3><ul class="cs-checks"><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span>Filtering meant typing a <strong>from–to range</strong> into input fields.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span>No proper filter options for jewellery attributes.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span>No sidebar filters, so filtering was hard to find and use.</span></li></ul></div>
-        <div class="cs-card cs-compare__col cs-compare__col--after"><h3 class="subhead">After</h3><ul class="cs-checks"><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>A <strong>sidebar filter panel</strong> that stays in view while browsing.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>Tap-to-select chips for category, metal and purity.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>Range sliders for price, diamond carat weight and weight, with quick-select presets.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>Applied filters shown as removable chips, with Clear all and Reset.</span></li></ul></div>
+        <div class="cs-card cs-compare__col cs-compare__col--before"><h3 class="subhead">Existing workflow</h3><ul class="cs-checks"><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span>Filtering meant typing a <strong>from–to range</strong> into input fields.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span>No proper filter options for jewellery attributes.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span>No sidebar filters, so filtering was hard to find and use.</span></li></ul></div>
+        <div class="cs-card cs-compare__col cs-compare__col--after"><h3 class="subhead">Proposed solution</h3><ul class="cs-checks"><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>A <strong>sidebar filter panel</strong> that stays in view while browsing.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>Tap-to-select chips for category, metal and purity.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>Range sliders for price, diamond carat weight and weight, with quick-select presets.</span></li><li><span class="cs-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span>Applied filters shown as removable chips, with Clear all and Reset.</span></li></ul></div>
       </div>
     </section>
 
     <!-- ============ RESEARCH ============ -->
     <section class="section" aria-labelledby="research-title">
-      <div class="a-head"><h2 class="section-title a-title" id="research-title">How I <strong>approached it.</strong></h2><p class="note note--side">research first, pixels later.</p></div>
+      <div class="a-head"><h2 class="section-title a-title" id="research-title"><strong>Research.</strong></h2></div>
       <div class="cs-research-grid"><div class="cs-card cs-research"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5z"/><path d="M9 10h7M9 14h7M9 18h4"/></svg></span><h3>Desk research</h3><p>Read articles on catalogue and e-commerce filtering to understand how people narrow down large product lists.</p></div><div class="cs-card cs-research"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><h3>ChatGPT</h3><p>Used to explore and compare filter patterns and structure ideas before designing.</p></div><div class="cs-card cs-research"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a3 3 0 0 1 0 6H9zM9 9h6a3 3 0 1 1 0 6H9zM9 3a3 3 0 0 0 0 6M9 9a3 3 0 0 0 0 6M9 15a3 3 0 1 0 3 3v-3"/></svg></span><h3>Figma</h3><p>Wireframes, components and high-fidelity screens for web, laptop and mobile.</p></div></div>
     </section>
 
     <!-- ============ FLOW ============ -->
+    <section class="section" aria-labelledby="process-title">
+      <div class="a-head"><h2 class="section-title a-title" id="process-title">Design <strong>process.</strong></h2></div>
+      <p class="cs-lead">I started with desk research on catalogue and e-commerce filtering, then took the catalogue through the same steps as every feature I design.</p>
+      <ol class="cs-proc"><li class="cs-proc__item"><span class="cs-proc__num">01</span><h3>Requirements</h3><p>Requirement sessions with the PM and stakeholders.</p></li><li class="cs-proc__item"><span class="cs-proc__num">02</span><h3>User flows</h3><p>Turned business rules into user flows and information architecture.</p></li><li class="cs-proc__item"><span class="cs-proc__num">03</span><h3>Wireframes</h3><p>Agreed structure and content before visual design.</p></li><li class="cs-proc__item"><span class="cs-proc__num">04</span><h3>Prototypes &amp; reviews</h3><p>Reviewed prototypes with the PM and stakeholders.</p></li><li class="cs-proc__item"><span class="cs-proc__num">05</span><h3>High-fidelity UI</h3><p>Final screens in Figma, built with reusable components.</p></li><li class="cs-proc__item"><span class="cs-proc__num">06</span><h3>Handoff &amp; UAT</h3><p>Specs, states and edge cases in Jira; validated with QA in UAT.</p></li></ol>
+    </section>
+
     <section class="section" aria-labelledby="flow-title">
-      <div class="a-head"><h2 class="section-title a-title" id="flow-title">From stock to <strong>request.</strong></h2><p class="note note--side">the whole journey.</p></div>
+      <div class="a-head"><h2 class="section-title a-title" id="flow-title">User <strong>flow.</strong></h2></div>
       <ol class="cs-steps"><li class="cs-step"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span><span class="cs-step__num">01</span><h3>Stock is ready</h3><p>The jeweller works from products that exist in stock.</p></li><li class="cs-step"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span class="cs-step__num">02</span><h3>Share a link</h3><p>A catalogue URL is generated and sent to the customer.</p></li><li class="cs-step"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span><span class="cs-step__num">03</span><h3>Browse &amp; filter</h3><p>The customer opens the link and narrows down by category, metal, purity, price and weight.</p></li><li class="cs-step"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="cs-step__num">04</span><h3>Save favourites</h3><p>Liked pieces go to a wishlist, with quantity controls.</p></li><li class="cs-step"><span class="icon-tile icon-tile--sm" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 10.5l7 2.5 2.5 7z"/><path d="m10 13 4.5-4.5"/></svg></span><span class="cs-step__num">05</span><h3>Send a request</h3><p>Buy now, visit the store or make an order, with name and phone.</p></li></ol>
     </section>
 
     <!-- ============ KEY SCREENS ============ -->
     <section class="section" aria-labelledby="screens-title">
-      <div class="a-head"><h2 class="section-title a-title" id="screens-title">Key <strong>screens.</strong></h2></div>
+      <div class="a-head"><h2 class="section-title a-title" id="screens-title">Final <strong>UI.</strong></h2></div>
       <div class="cs-features">
         <article class="cs-feature">
           <div class="cs-feature__text"><h3>Find the right piece, fast</h3><p>A filter panel keeps every jewellery attribute in one place: category, metal, purity, price range, diamond carat weight with quick-select ranges, and gross or net weight. Applied filters show as removable chips, with Clear all and Reset.</p></div>
@@ -153,8 +169,14 @@
     </section>
 
     <!-- ============ DELIVERED ============ -->
+    <section class="section" aria-labelledby="decisions-title">
+      <div class="a-head"><h2 class="section-title a-title" id="decisions-title">Design <strong>decisions.</strong></h2></div>
+      <div class="cs-decs"><div class="cs-card cs-dec"><span class="cs-dec__num">01</span><h3>Filters in a sidebar, not typed ranges</h3><p>Tap-to-select chips for category, metal and purity, and range sliders with quick-select presets for price, carat weight and weight.</p></div><div class="cs-card cs-dec"><span class="cs-dec__num">02</span><h3>Applied filters stay visible</h3><p>Every applied filter shows as a removable chip, with Clear all and Reset, so customers always know what they are looking at.</p></div><div class="cs-card cs-dec"><span class="cs-dec__num">03</span><h3>Every detail in one product view</h3><p>Photos, barcode, metal and purity, weights, HUID, stones and price inclusive of taxes sit beside the request options.</p></div><div class="cs-card cs-dec"><span class="cs-dec__num">04</span><h3>Ready for missing photos</h3><p>Products without photos still show clearly with an Image unavailable state, in the grid and the wishlist.</p></div></div>
+    </section>
+
     <section class="section" aria-labelledby="output-title">
-      <div class="a-head"><h2 class="section-title a-title" id="output-title">What I <strong>delivered.</strong></h2></div>
+      <div class="a-head"><h2 class="section-title a-title" id="output-title">Implementation &amp; <strong>delivery.</strong></h2></div>
+      <p class="cs-lead">Delivered as responsive screens for web, laptop and mobile, handed off to development in Figma.</p>
       <ul class="cs-delivered">
         <li><strong>Sidebar filter system</strong><span>Category, metal, purity, price, carat and weight, with chips, sliders and presets.</span></li>
         <li><strong>Catalogue grid</strong><span>In-stock products with barcode, weights, price and an image-unavailable state.</span></li>
@@ -173,10 +195,14 @@
         </div>
         <div class="hero__cta">
           <a class="btn btn--primary" href="https://www.behance.net/gallery/256248315/Share-Catalogue-Jewellery-Catalogue-Sharing-Platform" target="_blank" rel="noopener">View on Behance <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-          <a class="btn btn--outline" href="banner-configuration.html">Next: Banner Configuration</a>
         </div>
       </div>
     </section>
+    <nav class="section pn" aria-label="More projects">
+      <a class="pn__cell pn__cell--prev" href="digital-savings.html"><span class="pn__label">← Previous project </span><span class="pn__name">Digital Savings</span></a>
+      <a class="pn__all" href="projects.html">All projects</a>
+      <a class="pn__cell pn__cell--next" href="banner-configuration.html"><span class="pn__label"> Next project →</span><span class="pn__name">Banner Configuration</span></a>
+    </nav>
   </main>
 
   <footer class="footer">

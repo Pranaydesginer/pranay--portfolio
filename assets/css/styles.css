@@ -1580,3 +1580,100 @@ body.is-leaving { opacity: 0; }
   .hero--stack .portrait__glow { width: calc(min(240px, 66vw) + 14px); }
   .hero--stack .portrait__halo { width: calc(min(240px, 66vw) + 8px); }
 }
+
+/* =====================================================================
+   Portfolio review pass: shared components and a calmer visual layer
+   ===================================================================== */
+
+/* ---------- Calmer visuals: fewer gradients, decorations and loops ---------- */
+.portrait, .cs-hero__media .phone, .cs-devices .phone, .cs-mock, .floater, .doodle { animation: none !important; }
+.portrait__halo, .floater, .doodles, .doodle, .thread { display: none !important; }
+.portrait__glow { animation: none; }
+.portrait__clip::after { display: none; }
+.hero__visual::before { display: none; }
+.cs-next__card, [data-theme="dark"] .cs-next__card { background: var(--surface-2); }
+.all-work { background: var(--surface-2); }
+
+/* ---------- Shared text pieces ---------- */
+.cs-lead { max-width: 760px; margin: -8px 0 28px; font-size: 17px; line-height: 1.7; color: var(--text); }
+.cs-sub { margin-top: 36px; }
+.text-link { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 600; color: var(--text-strong); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .2s; }
+.text-link:hover { border-color: var(--text-strong); }
+
+/* ---------- Case study: design process ---------- */
+.cs-proc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: none; }
+.cs-proc__item { padding: 22px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface-2); }
+.cs-proc__num, .cs-dec__num { display: block; margin-bottom: 10px; font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--hold); }
+.cs-proc__item h3, .cs-dec h3 { margin: 0 0 6px; font-size: 17px; font-weight: 600; letter-spacing: -.01em; color: var(--text-strong); }
+.cs-proc__item p, .cs-dec p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- Case study: design decisions / approach ---------- */
+.cs-decs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cs-dec { padding: 24px; }
+
+/* ---------- Case study: simple numbered user flow ---------- */
+.cs-flowline { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.cs-flowline li { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); font-size: 14.5px; color: var(--text-strong); }
+.cs-flowline li span { font-size: 11px; font-weight: 700; color: var(--hold); }
+
+/* ---------- Previous / next project ---------- */
+.pn { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; padding-top: 0; }
+.pn__cell { display: grid; gap: 4px; padding: 22px 24px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface-2); text-decoration: none; transition: border-color .2s, translate .25s var(--ease); }
+.pn__cell:hover { border-color: var(--text-strong); translate: 0 -2px; }
+.pn__cell--next { text-align: right; }
+.pn__cell--empty { border: 0; background: none; pointer-events: none; }
+.pn__label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pn__name { font-size: 19px; font-weight: 600; letter-spacing: -.01em; color: var(--text-strong); }
+.pn__all { align-self: center; padding: 10px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--text-strong); text-decoration: none; white-space: nowrap; }
+.pn__all:hover { border-color: var(--text-strong); }
+
+/* ---------- Home ---------- */
+.home-sec__head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.home-sec__head .a-title, .home-sec > .a-title { margin: 0 0 28px; }
+.home-sec__head .a-title { margin: 0; }
+.bring { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.bring__item { padding: 26px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-2); }
+.bring__num { display: block; margin-bottom: 14px; font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--hold); }
+.bring__item h3 { margin: 0 0 8px; font-size: 18px; font-weight: 600; letter-spacing: -.01em; color: var(--text-strong); }
+.bring__item p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+.xp-mini { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.xp-mini__row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.xp-mini__date { font-size: 14px; font-weight: 500; color: var(--muted); padding-top: 3px; }
+.xp-mini__row h3 { margin: 0 0 4px; font-size: 18px; font-weight: 600; color: var(--text-strong); }
+.xp-mini__row h3 span { font-weight: 400; color: var(--text); }
+.xp-mini__row p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+.xp-mini__row--now .xp-mini__date { color: var(--hold); font-weight: 600; }
+.fp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.fp-card { display: flex; flex-direction: column; overflow: hidden; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-2); transition: translate .3s var(--ease), box-shadow .3s var(--ease); }
+.fp-card:hover { translate: 0 -4px; box-shadow: 0 22px 44px rgba(0,0,0,.08); }
+.fp-card__media { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface); border-bottom: 1px solid var(--line); }
+.fp-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+.fp-card__body { display: flex; flex-direction: column; gap: 10px; padding: 22px 22px 24px; flex: 1; }
+.fp-card__title { margin: 0; font-size: 21px; font-weight: 700; letter-spacing: -.02em; }
+.fp-card__title a { color: var(--text-strong); text-decoration: none; }
+.fp-card__line { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text); flex: 1; }
+.fp-card__link { font-size: 14.5px; font-weight: 600; color: var(--text-strong); text-decoration: none; }
+.fp-card__link:hover { text-decoration: underline; }
+.hero__desc strong { color: var(--text-strong); font-weight: 600; }
+.hero__cta .btn svg { flex: none; }
+
+/* ---------- About: skills grouped, tools separate ---------- */
+.skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 40px; margin-bottom: 36px; }
+.skill-group .subhead { margin-bottom: 12px; }
+.skill-group .chip { white-space: normal; }
+.tools-row { padding-top: 28px; border-top: 1px solid var(--line); }
+.a-offclock { margin-top: 36px; font-size: 16px; }
+
+@media (max-width: 1020px) {
+  .cs-proc, .bring, .fp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .cs-proc, .cs-decs, .bring, .fp-grid, .skill-groups { grid-template-columns: 1fr; }
+  .xp-mini__row { grid-template-columns: 1fr; gap: 6px; }
+  .pn { grid-template-columns: 1fr 1fr; }
+  .pn__all { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+  .pn__name { font-size: 16px; }
+  .pn__cell { padding: 16px; }
+}
+.a-intro__photo img, .a-intro__ring { animation: none !important; }
+.p-list .w-grid { margin-top: 28px; }

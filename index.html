@@ -31,45 +31,6 @@
 </head>
 <body>
 
-  <!-- ============ WELCOME SCREEN (minimal) ============ -->
-  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-label="Welcome">
-    <div class="welcome__inner">
-      <!-- Laptop with "Welcome" typing on its screen -->
-      <div class="laptop" aria-hidden="true">
-        <div class="laptop__screen">
-          <span class="laptop__cam"></span>
-          <div class="laptop__display"><span id="welcomeText"></span><span class="caret"></span></div>
-        </div>
-        <div class="laptop__deck"><span class="laptop__keys"></span><span class="laptop__pad"></span></div>
-      </div>
-
-      <button class="enter-btn" id="welcomeEnter" type="button">
-        Enter
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4v7a4 4 0 0 1-4 4H4"/><path d="m9 10-5 5 5 5"/></svg>
-      </button>
-      <p class="welcome__hint">Enter or click to continue</p>
-    </div>
-  </div>
-
-  <!-- ============ INTRO TRANSITION ============ -->
-  <div class="intro" id="intro" aria-hidden="true">
-    <div class="intro__cell">
-      <span class="intro__line intro__line--top"></span>
-      <span class="intro__line intro__line--bottom"></span>
-      <span class="intro__line intro__line--left"></span>
-      <span class="intro__line intro__line--right"></span>
-
-      <span class="intro__label intro__label--tl">Pranay Chowdary</span>
-      <span class="intro__label intro__label--tr">Product Designer</span>
-      <span class="intro__label intro__label--bl">Designing with AI</span>
-      <span class="intro__label intro__label--br">Portfolio · 2026</span>
-
-      <span class="intro__greet" id="introGreet"></span>
-      <span class="intro__block"><span>Welcome.</span></span>
-    </div>
-    <button class="intro__skip" id="introSkip" type="button">Skip</button>
-  </div>
-
   <!-- ============ NAVIGATION ============ -->
   <header class="nav">
     <div class="nav__inner">
@@ -97,7 +58,7 @@
   <!-- ============ MAIN ============ -->
   <main class="frame">
     <section class="hero hero--stack" aria-labelledby="hero-title">
-      <!-- Text sits under the portrait -->
+      <!-- Introduction, under the portrait -->
       <div class="hero__text">
         <p class="hero__hi reveal" style="--d:.1s">Hi, I'm <strong>Pranay Chowdary Puthumbaka</strong> <span aria-hidden="true">👋</span></p>
 
@@ -106,18 +67,19 @@
         </h1>
 
         <p class="hero__desc reveal" style="--d:.22s">
-          Product Designer designing B2B SaaS, ERP and fintech products. I specialise in mapping user flows and turning complex business workflows into user-centred, easy-to-use designs, from requirement gathering to high-fidelity UI.
+          I'm a Product Designer working on <strong>B2B SaaS</strong> products: an <strong>enterprise ERP</strong> for jewellery retail, its customer and store <strong>mobile apps</strong>, and fintech tools. I take features from requirement gathering and user flows to high-fidelity UI, working with product managers, developers and QA.
         </p>
 
         <ul class="meta reveal" style="--d:.28s">
-          <li>Product Designer</li>
-          <li>B2B SaaS &amp; ERP</li>
+          <li>B2B SaaS</li>
+          <li>Enterprise ERP</li>
+          <li>Mobile apps</li>
           <li>Hyderabad, India</li>
         </ul>
 
         <div class="hero__cta reveal" style="--d:.34s">
           <a class="btn btn--primary" href="projects.html">View projects <span aria-hidden="true">→</span></a>
-          <a class="btn btn--outline" href="about.html">About me</a>
+          <a class="btn btn--outline" href="https://drive.google.com/uc?export=download&amp;id=15YdlNEJKuUJEdSD5GdNVbuTQy5E2yW6C" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 19h14"/></svg> Download resume</a>
         </div>
       </div>
 
@@ -131,6 +93,71 @@
                  alt="Portrait of Pranay Chowdary Puthumbaka, wearing glasses and a teal collared sweatshirt.">
           </span>
         </figure>
+      </div>
+    </section>
+
+    <!-- ============ WHAT I BRING ============ -->
+    <section class="section home-sec" aria-labelledby="bring-title">
+      <h2 class="section-title a-title" id="bring-title">What I <strong>bring.</strong></h2>
+      <div class="bring">
+        <div class="bring__item"><span class="bring__num">01</span><h3>Simplify complex workflows</h3><p>I turn business rules into clear user flows, like a redeem process that runs from a customer app to a store ERP.</p></div>
+        <div class="bring__item"><span class="bring__num">02</span><h3>Design the whole experience</h3><p>Complete journeys across web and mobile, with every status, state and edge case, not just single screens.</p></div>
+        <div class="bring__item"><span class="bring__num">03</span><h3>Work with the product team</h3><p>From requirement calls with PMs to Jira handoff for developers and UAT with QA, designs go all the way to release.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section home-sec" aria-labelledby="exp-title">
+      <div class="home-sec__head">
+        <h2 class="section-title a-title" id="exp-title">My <strong>experience.</strong></h2>
+        <a class="text-link" href="about.html#experience">Full experience <span aria-hidden="true">→</span></a>
+      </div>
+      <ol class="xp-mini">
+        <li class="xp-mini__row xp-mini__row--now">
+          <span class="xp-mini__date">Feb 2026 – Present</span>
+          <div><h3>Product Designer <span>· Cixcent Technologies</span></h3><p>B2B SaaS for jewellery retail: the ERP24K platform, the My Jeweller 24K and Store 24K mobile apps, and Loans 24K, a fintech web app.</p></div>
+        </li>
+        <li class="xp-mini__row">
+          <span class="xp-mini__date">Aug 2025 – Jan 2026</span>
+          <div><h3>UI/UX Design Intern <span>· Beetsl Soft Solutions</span></h3><p>Designed Aarogya Parampara, a healthcare and wellness website, with the Product Manager.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ FEATURED PROJECTS ============ -->
+    <section class="section home-sec" aria-labelledby="feat-title">
+      <div class="home-sec__head">
+        <h2 class="section-title a-title" id="feat-title">Featured <strong>projects.</strong></h2>
+        <a class="text-link" href="projects.html">All projects <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="fp-grid">
+        <article class="fp-card">
+          <a class="fp-card__media" href="digital-savings.html" tabindex="-1" aria-hidden="true"><img src="assets/images/projects/digital-savings/request-completed.webp" width="1800" height="1112" loading="lazy" decoding="async" alt=""></a>
+          <div class="fp-card__body">
+            <div class="p-card__tags"><span class="tag">ERP · Fintech</span><span class="tag">Web + mobile app</span></div>
+            <h3 class="fp-card__title"><a href="digital-savings.html">Digital Savings</a></h3>
+            <p class="fp-card__line">A redeem flow for digital gold and silver savings, from the customer app to the store ERP, with clear request statuses.</p>
+            <a class="fp-card__link" href="digital-savings.html" aria-label="Read the Digital Savings case study">Read case study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fp-card">
+          <a class="fp-card__media" href="share-catalogue.html" tabindex="-1" aria-hidden="true"><img src="assets/images/projects/share-catalogue/catalogue-filters.webp" width="1800" height="1480" loading="lazy" decoding="async" alt=""></a>
+          <div class="fp-card__body">
+            <div class="p-card__tags"><span class="tag">B2B SaaS</span><span class="tag">Web · Mobile</span></div>
+            <h3 class="fp-card__title"><a href="share-catalogue.html">Share Catalogue</a></h3>
+            <p class="fp-card__line">In-stock jewellery shared as one link, with sidebar filters, product details and a wishlist, on every screen.</p>
+            <a class="fp-card__link" href="share-catalogue.html" aria-label="Read the Share Catalogue case study">Read case study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fp-card">
+          <a class="fp-card__media" href="banner-configuration.html" tabindex="-1" aria-hidden="true"><img style="object-position: right top" src="assets/images/projects/banner-config/add-banner-permanent.webp" width="1800" height="997" loading="lazy" decoding="async" alt=""></a>
+          <div class="fp-card__body">
+            <div class="p-card__tags"><span class="tag">ERP · Admin</span><span class="tag">Web → Mobile app</span></div>
+            <h3 class="fp-card__title"><a href="banner-configuration.html">Banner Configuration</a></h3>
+            <p class="fp-card__line">Store admins publish permanent or scheduled banners to the customer app, with a live preview and audit log.</p>
+            <a class="fp-card__link" href="banner-configuration.html" aria-label="Read the Banner Configuration case study">Read case study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
